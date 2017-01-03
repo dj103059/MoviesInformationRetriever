@@ -14,3 +14,5 @@ Specifications :
  - for symplify the test, we only ask yes/no questions.
  - It will be in english.
  
+ If we have enought time, we will implement the option "Add" who will feed our database (so with SPARQL , we will add some informations in the RDF files)
+ 
