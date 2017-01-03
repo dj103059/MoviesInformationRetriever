@@ -1,14 +1,19 @@
 # MoviesInformationRetriever
-Project for web semantic 
+Project for semantic web.
 Version 0.0
+Author : DRAVET Jean-Baptiste and Rémy AUDA
 
+Constraints :
+- Semantics : datamodel in Owl;
+- Knowledge base 
+- SPARQL engine 
 
 This is a project for semantic web.
 
-We will create a akinator for movies.
+We will create an akinator for movies.
 
 Specifications :
- - Our database is RDF files and the structures is RDFS files.
+ - Our database is RDF files and the structures is OWL files (we will create our own knowledge base)
  - We will use SPARQL request with Corese.
  - progamatic language : Java.
  - for symplify the test, we only ask yes/no questions.
@@ -16,3 +21,15 @@ Specifications :
  
  If we have enought time, we will implement the option "Add" who will feed our database (so with SPARQL , we will add some informations in the RDF files)
  
+------------------------------------------------------
+
+The main utility of this software is to help people to retrieve a movie throught an "Akinator".
+The user will respond to some questions by Yes or No and we will found the movie.
+For this, we will user SPARQL for the selecting system and use OWL for the structure of our database.
+
+
+
+
+
+
+
