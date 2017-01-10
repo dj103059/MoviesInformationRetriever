@@ -24,6 +24,20 @@ import javax.swing.event.DocumentListener;
 
 public class Main_window extends JFrame implements ActionListener,DocumentListener,FocusListener,KeyListener {
 
+	public static class Compteur {
+		  public static int compteur = 0;
+
+		  public Compteur() {
+		    compteur++;
+		  }
+		  
+		  public int getCompteur(){
+			  return compteur;
+		  }
+		  
+		  
+		  
+		}
 
 	private static final long serialVersionUID = 1L;
 
@@ -33,9 +47,6 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 	protected JRadioButton jbr1 = new JRadioButton("Yes");
 	protected JRadioButton jbr2 = new JRadioButton("No");
 	protected JButton confirm = new JButton("OK");
-
-	protected static int compteur = 0;
-
 
 	//A component that lets the user switch between a group of components by clicking on a tab with a given title and/or icon
 	/** The onglet. */
@@ -75,6 +86,8 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 	 * Instantiates a new fenetre.
 	 */
 	public Main_window(){
+		
+		Compteur compteur = new Compteur();
 
 		//D�finit un titre pour notre fen�tre
 		this.setTitle("Main window");
@@ -107,14 +120,12 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 		//mise en forme de l'onglet: First tab
 		//On cree un conteneur avec gestion horizontale
 		Box b1 = Box.createHorizontalBox();
-        
-		if(compteur==0){
+		if(compteur.getCompteur()==1){
 			b1.add(new JLabel("Are you searching an actor ?"));
 		}
-		else if(compteur==1){
-			b1.add(new JLabel("Are you searching a women or a man ?"));
+		else{
+			b1.add(new JLabel("Are you searching a man or a woman ?"));
 		}
-
 
 		Box b2 = Box.createHorizontalBox();
 		bg.add(jbr1);
@@ -221,7 +232,6 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 				e1.printStackTrace();
 			}
 			Main_window fen = new Main_window();
-			compteur++;
 
 		}
 
@@ -322,8 +332,8 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 
 
 
-//	public static void main(String[] args) {
-//		Main_window fen = new Main_window();
-//	}
+//		public static void main(String[] args) {
+//			Main_window fen = new Main_window();
+//		}
 
 }
