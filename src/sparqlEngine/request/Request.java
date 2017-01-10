@@ -1,6 +1,6 @@
 package sparqlEngine.request;
 
-import sparqlEngine.Filter;
+import sparqlEngine.filter.Filter;
 
 /**
  * Class for the request representation

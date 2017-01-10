@@ -11,6 +11,14 @@ public class Filter {
 
     }
 
+    /**
+     * build  filter with the good property and the good value
+     *  in function of the answer
+     * @param property
+     * @param value
+     * @param answer
+     * @return
+     */
     public String constructFilter(String property, String value, String answer){
         //TODO: construct filter in function of the answer
         return "None";
