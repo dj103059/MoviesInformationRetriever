@@ -1,4 +1,4 @@
-package graphisme;
+package graphic_design;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
@@ -27,17 +28,19 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 	private static final long serialVersionUID = 1L;
 
 	/*Component for the second tab*/
-	
+
 	protected ButtonGroup bg = new ButtonGroup();
 	protected JRadioButton jbr1 = new JRadioButton("Yes");
 	protected JRadioButton jbr2 = new JRadioButton("No");
 	protected JButton confirm = new JButton("OK");
 
+	protected static int compteur = 0;
+
 
 	//A component that lets the user switch between a group of components by clicking on a tab with a given title and/or icon
 	/** The onglet. */
 	private JTabbedPane onglet;
-	
+
 	/*Component for the second tab*/
 
 	/** The coche21. */
@@ -85,7 +88,7 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 		this.setResizable(false);
 
 		this.setAlwaysOnTop(false);
-		
+
 		//Creation de notre conteneur d'onglets
 		onglet = new JTabbedPane();
 		int i = 0;
@@ -104,18 +107,24 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 		//mise en forme de l'onglet: First tab
 		//On cree un conteneur avec gestion horizontale
 		Box b1 = Box.createHorizontalBox();
+        
+		if(compteur==0){
+			b1.add(new JLabel("Are you searching an actor ?"));
+		}
+		else if(compteur==1){
+			b1.add(new JLabel("Are you searching a women or a man ?"));
+		}
 
-		b1.add(new JLabel("Are you searching an actor ?"));
 
 		Box b2 = Box.createHorizontalBox();
 		bg.add(jbr1);
 		bg.add(jbr2);
 		b2.add(jbr1);
 		b2.add(jbr2);
-		
+
 		Box b3 = Box.createHorizontalBox();
 		b3.add(new JLabel("\n\n"));
-		
+
 		Box b4 = Box.createHorizontalBox();
 		b4.add(confirm);
 
@@ -173,7 +182,7 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 		saisie13.addFocusListener((FocusListener) this);
 		saisie21.addFocusListener((FocusListener) this);
 		saisie22.addFocusListener((FocusListener) this);
-		
+
 		jbr1.addActionListener((ActionListener) this);
 		jbr2.addActionListener((ActionListener) this);
 		confirm.addActionListener((ActionListener) this);
@@ -186,19 +195,37 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if(e.getSource()==jbr1){//on impl�mente l'action du coche21(CheckBox2.1)
 			System.out.println("User say yes");
 		}
-		
+
 		if(e.getSource()==jbr2){//on impl�mente l'action du coche21(CheckBox2.1)
 			System.out.println("User say no");
 		}
-		
+
 		if(e.getSource()==confirm){//on impl�mente l'action du coche21(CheckBox2.1)
 			System.out.println("User press ok");
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			//Termine le processus lorsqu'on clique sur la croix rouge
+			this.dispose();
+			try {
+				Thread.sleep(600);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			Main_window fen = new Main_window();
+			compteur++;
+
 		}
-		
+
+
 
 		if(e.getSource()==coche21){//on impl�mente l'action du coche21(CheckBox2.1)
 			System.out.println("action sur la case 2.1");
@@ -218,7 +245,7 @@ public class Main_window extends JFrame implements ActionListener,DocumentListen
 				saisie22.setEditable(false);
 			}
 		}
-		
+
 	}
 
 	/* (non-Javadoc)
