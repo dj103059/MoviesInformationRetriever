@@ -257,6 +257,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Academy_Awards -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Academy_Awards">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Action -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Action">
@@ -269,6 +277,15 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Adventure">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Agent_Smith -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Agent_Smith">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
+        <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Weaving"/>
     </owl:NamedIndividual>
     
 
@@ -291,11 +308,28 @@
     
 
 
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#British_Academy_Film_Awards -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#British_Academy_Film_Awards">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Bryan_Singer -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Bryan_Singer">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie-Anne_Moss -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie-Anne_Moss">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
+        <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
     </owl:NamedIndividual>
     
 
@@ -428,6 +462,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Weaving -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Weaving">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
+        <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Ian_McKellen -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Ian_McKellen">
@@ -450,10 +493,37 @@
     
 
 
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keanu_Reeves -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keanu_Reeves">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
+        <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Laurence_Fishburne -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Laurence_Fishburne">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
+        <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Legolas -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Legolas">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Les_Wachowski -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Les_Wachowski">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
+        <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
     </owl:NamedIndividual>
     
 
@@ -470,6 +540,42 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
+        <Characters rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Agent_Smith"/>
+        <Characters rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Morpheus"/>
+        <Characters rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Neo"/>
+        <Characters rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Trinity"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie-Anne_Moss"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Weaving"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keanu_Reeves"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Laurence_Fishburne"/>
+        <hasScriptWriter rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Les_Wachowski"/>
+        <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#SF"/>
+        <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wachowski"/>
+        <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Academy_Awards"/>
+        <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#British_Academy_Film_Awards"/>
+        <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards"/>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1999</wasReleasedIn>
+        <rdfs:comment>Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. Morpheus awakens Neo to the real world, a ravaged wasteland where most of humanity have been captured by a race of machines that live off of the humans&apos; body heat and electrochemical energy and who imprison their minds within an artificial reality known as the Matrix. As a rebel against the machines, Neo must return to the Matrix and confront the agents: super-powerful computer programs devoted to snuffing out Neo and the entire human rebellion.</rdfs:comment>
+        <rdfs:label>Matrix</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Morpheus -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Morpheus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
+        <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Laurence_Fishburne"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Neo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Neo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
+        <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keanu_Reeves"/>
     </owl:NamedIndividual>
     
 
@@ -562,6 +668,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Storm -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Storm">
@@ -575,6 +689,15 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Tom_Desanto">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Trinity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Trinity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
+        <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie-Anne_Moss"/>
     </owl:NamedIndividual>
     
 
@@ -593,6 +716,15 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Aragorn"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wachowski -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wachowski">
+        <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
+        <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
     </owl:NamedIndividual>
     
 
