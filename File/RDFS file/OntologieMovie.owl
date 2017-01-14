@@ -272,6 +272,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Academy_Awards">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>Academy award</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -280,6 +281,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Action">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Action</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -288,6 +290,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Adventure">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Adventure</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -297,6 +300,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Agent_Smith">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Weaving"/>
+        <rdfs:label>agent Smith</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -307,6 +311,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Obi-Wan"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Alec Guinness</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -318,6 +323,7 @@
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Gollum"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Andy Serkis</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -328,6 +334,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#C-3PO"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Anthony Daniels</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -337,6 +344,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Aragorn">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Viggo_Mortensen"/>
+        <rdfs:label>Aragorn</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -345,6 +353,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#British_Academy_Film_Awards">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>British academy awards</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -354,6 +363,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Bryan_Singer">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Bryan Singer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -363,6 +373,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#C-3PO">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Anthony_Daniels"/>
+        <rdfs:label>C-3PO</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -372,6 +383,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Captain_Hector_Barbossa">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Geoffrey_Rush"/>
+        <rdfs:label>captain Barbossa</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -381,6 +393,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Captain_Jack_Sparrow">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Johnny_Depp"/>
+        <rdfs:label>captain Jack Sparrow</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -391,6 +404,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Trinity"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Carrie Anne-Moss</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -401,6 +415,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Princess_Leia"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Carrie Fisher</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -409,6 +424,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Comic">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Comic</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -418,6 +434,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Cyclops">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#James_Marsden"/>
+        <rdfs:label>Cyclops</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -427,6 +444,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Darth_Vader">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#David_Prowse"/>
+        <rdfs:label>Darth Vader</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -437,6 +455,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Darth_Vader"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>David Prowse</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -445,6 +464,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Documentary">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Documentary</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -456,6 +476,7 @@
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Frodo"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Elijah Wood</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -465,6 +486,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Elizabeth_Swann">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keira_Knightley"/>
+        <rdfs:label>Elizabeth Swann</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -475,6 +497,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Phoenix"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Famke Janssen</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -483,6 +506,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Fantasy">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Fantasy</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -491,6 +515,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#French">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Country"/>
+        <rdfs:label>France</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -500,6 +525,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Frodo">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Elijah_Wood"/>
+        <rdfs:label>Frodo</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -509,6 +535,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Gandalf">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Ian_McKellen"/>
+        <rdfs:label>Gandalf</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -519,6 +546,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Captain_Hector_Barbossa"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
+        <rdfs:label>Geoffrey Rush</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -528,6 +556,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#George-Lucas">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>George Lucas</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -537,6 +566,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#George_Lucas">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>George Lucas</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -545,6 +575,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Golden_Globe">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>Golden Globe</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -554,6 +585,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Gollum">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Andy_Serkis"/>
+        <rdfs:label>Gollum</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -564,6 +596,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Storm"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Halle Berry</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -573,6 +606,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Han_Solo">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Harrison_Ford"/>
+        <rdfs:label>Han Solo</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -583,6 +617,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Han_Solo"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Harrison Ford</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -591,6 +626,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Horror">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Horror</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -601,6 +637,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wolverine"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Hugh Jackman</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -609,6 +646,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Award">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>Hugo Award</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -619,6 +657,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Agent_Smith"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Hugo Weaving</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -632,6 +671,7 @@
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Ian McKellen</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -642,6 +682,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Cyclops"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>James Marsden</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -651,6 +692,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Jerry_Bruckheimer">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
+        <rdfs:label>Jerry Bruckheimer</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -661,6 +703,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Captain_Jack_Sparrow"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
+        <rdfs:label>Johnny Depp</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -671,6 +714,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Neo"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Keanu Reeves</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -681,6 +725,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Elizabeth_Swann"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
+        <rdfs:label>Keira Knightley</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -691,6 +736,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#R2-D2"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Kenny Baker</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -701,6 +747,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Morpheus"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Laurence Fishburne</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -710,6 +757,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Legolas">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Orlando_Bloom"/>
+        <rdfs:label>Legolas</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -719,6 +767,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Les_Wachowski">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Les Wachowski</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -728,6 +777,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Luke_Skywalker">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Mark_Hamill"/>
+        <rdfs:label>Luke Skywalker</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -737,6 +787,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Magneto">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Ian_McKellen"/>
+        <rdfs:label>Magneto</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -747,6 +798,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Luke_Skywalker"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
+        <rdfs:label>Mark Hamill</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -782,6 +834,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Morpheus">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Laurence_Fishburne"/>
+        <rdfs:label>Morpheus</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -791,6 +844,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Neo">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Keanu_Reeves"/>
+        <rdfs:label>Neo</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -799,6 +853,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#New_zealand">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Country"/>
+        <rdfs:label>New Zealand</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -808,6 +863,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Obi-Wan">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Alec_Guinness"/>
+        <rdfs:label>Obi Wan</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -821,6 +877,7 @@
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Orlando Bloom</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -829,6 +886,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Oscar">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>Oscar</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -839,6 +897,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Professor_X"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Patrick Stewart</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -852,6 +911,7 @@
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Peter Jacson</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -861,6 +921,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Phoenix">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Famke_Janssen"/>
+        <rdfs:label>Phoenix</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -869,6 +930,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirate">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Pirate</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -878,6 +940,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Princess_Leia">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie_Fisher"/>
+        <rdfs:label>princess Leia</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -888,6 +951,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Patrick_Stewart"/>
+        <rdfs:label>professor X</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -897,6 +961,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#R2-D2">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Kenny_Baker"/>
+        <rdfs:label>R2-D2</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -905,6 +970,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Romance">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Romance</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -913,6 +979,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#SF">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>Science fiction</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -921,6 +988,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Award"/>
+        <rdfs:label>Saturn award</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -930,6 +998,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Storm">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Halle_Berry"/>
+        <rdfs:label>Storm</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -939,6 +1008,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Stuart_Beattie">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
+        <rdfs:label>Stuart Beattie</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -948,6 +1018,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Tom_Desanto">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
         <wasScriptWriterIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#X-Men"/>
+        <rdfs:label>Tom Desanto</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -957,6 +1028,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Trinity">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Carrie-Anne_Moss"/>
+        <rdfs:label>Trinity</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -965,6 +1037,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#United_States">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Country"/>
+        <rdfs:label>United States</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -976,6 +1049,7 @@
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Aragorn"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_Lord_of_the_Rings:_The_Two_Towers"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#The_lord_of_the_rings_:_The_Fellowship_of_the_Ring"/>
+        <rdfs:label>Viggo Mortensen</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -985,6 +1059,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wachowski">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
         <wasProducerIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Matrix"/>
+        <rdfs:label>Wachowski</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -994,6 +1069,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Will_Turner">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Orlando_Bloom"/>
+        <rdfs:label>Will Turner</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1003,6 +1079,7 @@
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Wolverine">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
         <wasPlayBy rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugh_Jackman"/>
+        <rdfs:label>Wolverine</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1038,6 +1115,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#space_opera">
         <rdf:type rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+        <rdfs:label>space opera</rdfs:label>
     </owl:NamedIndividual>
     
 
