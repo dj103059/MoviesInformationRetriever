@@ -1,5 +1,7 @@
 package sparqlEngine.filter;
 
+import com.oracle.webservices.internal.api.message.PropertySet;
+
 /**
  * Class for the representation of the filter
  *
@@ -7,8 +9,10 @@ package sparqlEngine.filter;
  */
 public class Filter {
 
-    public Filter(){
+    private String filter;
 
+    public Filter(String filter){
+        this.filter = filter;
     }
 
     /**
@@ -19,8 +23,21 @@ public class Filter {
      * @param answer
      * @return
      */
-    public String constructFilter(String property, String value, String answer){
-        //TODO: construct filter in function of the answer
-        return "None";
+    public void constructFilter(String property, String value, boolean answer){
+        //TODO : works with movie propertie, but not with rdfs property
+        if(answer){
+            setFilter("?uri mo:"+ property +" mo:" + value + ".\n");
+        }else{
+            setFilter("filter not exists {?uri mo:"+ property +" mo:" + value + "}.\n");
+        }
+
+    }
+
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
     }
 }
