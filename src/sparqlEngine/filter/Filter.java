@@ -1,6 +1,7 @@
 package sparqlEngine.filter;
 
 import com.oracle.webservices.internal.api.message.PropertySet;
+import init.StoredComponent;
 
 /**
  * Class for the representation of the filter
@@ -11,24 +12,34 @@ public class Filter {
 
     private String filter;
 
-    public Filter(String filter){
-        this.filter = filter;
+    public Filter(
+    ){
+
     }
 
     /**
      * build  filter with the good property and the good value
      *  in function of the answer
-     * @param property
-     * @param value
+     * @param storedComponent
      * @param answer
      * @return
      */
-    public void constructFilter(String property, String value, boolean answer){
-        //TODO : works with movie propertie, but not with rdfs property
-        if(answer){
-            setFilter("?uri mo:"+ property +" mo:" + value + ".\n");
+    public void constructFilter(StoredComponent storedComponent, boolean answer){
+
+        // to know if ti's our format or rdfs format
+
+        String filtervalue = "";
+
+        if(storedComponent.getFormat() == "rdfs"){
+            filtervalue = " " + storedComponent.getValue() ;
         }else{
-            setFilter("filter not exists {?uri mo:"+ property +" mo:" + value + "}.\n");
+            filtervalue = " mo:" + storedComponent.getValue() ;
+        }
+
+        if(answer){
+            setFilter("?uri mo:"+ storedComponent.getProperty() + filtervalue + ".\n");
+        }else{
+            setFilter("filter not exists {?uri mo:"+ storedComponent.getProperty() + filtervalue + "}.\n");
         }
 
     }

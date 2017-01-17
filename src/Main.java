@@ -1,9 +1,12 @@
+import com.sun.org.apache.xml.internal.security.Init;
 import fr.inria.edelweiss.kgraph.core.Graph;
+import init.Initialisation;
+
+import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello Master!");
-        Graph graph  = Graph.create();
+        Initialisation initialisation= new Initialisation();
     }
 }

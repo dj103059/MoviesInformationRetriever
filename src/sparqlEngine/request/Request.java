@@ -21,10 +21,9 @@ public class Request {
 
     /**
      * execute Querry to get the result
-     * @param querry
      * @return
      */
-    public String getResult(String querry){
+    public String getResult(){
         //TODO: if count >1 return NONE else return result
         return "none";
     }

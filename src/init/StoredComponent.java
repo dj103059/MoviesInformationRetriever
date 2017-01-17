@@ -1,5 +1,6 @@
 package init;
 
+
 /**
  * Class used to store component to create filter
  * Created by titanium on 10/01/2017.
@@ -7,10 +8,12 @@ package init;
 public class StoredComponent {
     private String property;
     private String value;
+    private String format;
 
-    public StoredComponent(String prop, String val){
+    public StoredComponent(String prop, String val, String format){
         this.property = prop;
         this.value = val;
+        this.format = format;
     }
 
     // getter and setter
@@ -29,5 +32,13 @@ public class StoredComponent {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 }
