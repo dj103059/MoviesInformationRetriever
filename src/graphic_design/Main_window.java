@@ -1,6 +1,9 @@
 //current package
 package graphic_design;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 //import for graphism
 
 //Actions
@@ -19,18 +22,18 @@ public class Main_window extends JFrame implements ActionListener {
 
 	//intern class: each instance increment the attribut compteur
 	public static class Compteur {
-		  public static int compteur = 0;
+		public static int compteur = 0;
 
-		  public Compteur() {
-		    compteur++;
-		  }
-		  
-		  public int getCompteur(){
-			  return compteur;
-		  }		  
-		  
+		public Compteur() {
+			compteur++;
 		}
-	
+
+		public int getCompteur(){
+			return compteur;
+		}		  
+
+	}
+
 	/******ATTRIBUTS******/
 
 	private static final long serialVersionUID = 1L;
@@ -46,14 +49,14 @@ public class Main_window extends JFrame implements ActionListener {
 
 
 	/******CONSTRUCTORS******/
-	
+
 	/**
 	 * Instantiates a new Main_window.
 	 */
 	public Main_window(){
-		
+
 		question.setText("Are you searching an actor ?");
-		
+
 		/***Set the window***/
 		//Define a title to the window
 		this.setTitle("Main window");
@@ -67,32 +70,43 @@ public class Main_window extends JFrame implements ActionListener {
 		this.setResizable(false);
 		//The windows will be always on top 
 		this.setAlwaysOnTop(false);
-		
-		
+
+
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
 
+		setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+
+
 		//////////////////////////////////////////////////////////////////////
 		//Formatting content of the window
-		
+
 		//Creating a Container with Horizontal Management
 		Box b1 = Box.createHorizontalBox();
-			b1.add(question);
-		//Creating a Container with Horizontal Management
+		b1.add(question);
+
 		Box b2 = Box.createHorizontalBox();
-		b2.add(yes);
-		b2.add(new JLabel("  "));
-		b2.add(no);
-		b2.add(new JLabel("  "));
-		b2.add(noanswer);
+		b2.add(new JLabel("<html><br><br></html>"));
+
+		//Creating a Container with Horizontal Management
+		Box b3 = Box.createHorizontalBox();
+		b3.add(yes);
+		b3.add(new JLabel("  "));
+		b3.add(no);
+		b3.add(new JLabel("  "));
+		b3.add(noanswer);
 
 		//Creating a Container with Vertical Management
-		Box b5 = Box.createVerticalBox();
-		b5.add(b1);
-		b5.add(b2);
+		Box b4 = Box.createVerticalBox();
+		b4.add(b1);
+		b4.add(b2);
+		b4.add(b3);
 
 
-		pan.add(b5);
+		pan.add(b4);
 
 		//on place tous les ecouteurs pour que chaque composants puisse ecouter les interactions.
 
@@ -128,11 +142,11 @@ public class Main_window extends JFrame implements ActionListener {
 			}
 
 		}
-		
+
 	}
 
-		public static void main(String[] args) {
-			Main_window fen = new Main_window();
-		}
+	public static void main(String[] args) {
+		Main_window fen = new Main_window();
+	}
 
 }
