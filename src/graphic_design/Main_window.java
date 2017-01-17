@@ -4,7 +4,7 @@ package graphic_design;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-//import for graphism
+//imports for graphism
 
 //Actions
 import java.awt.event.ActionEvent;
@@ -18,43 +18,71 @@ import javax.swing.JPanel;
 
 
 
+
+/**
+ * The Class Main_window.
+ */
 public class Main_window extends JFrame implements ActionListener {
 
+	/**
+	 * The Class Compteur.
+	 */
 	//intern class: each instance increment the attribut compteur
 	public static class Compteur {
+		
+		/** The compteur. */
 		public static int compteur = 0;
 
+		/**
+		 * Instantiates a new compteur.
+		 */
 		public Compteur() {
 			compteur++;
 		}
 
+		/**
+		 * Gets the compteur.
+		 *
+		 * @return the compteur
+		 */
 		public int getCompteur(){
 			return compteur;
 		}		  
 
 	}
 
-	/******ATTRIBUTS******/
+	/** ****ATTRIBUTS*****. */
 
 	private static final long serialVersionUID = 1L;
 
-	/*Component the window*/
+	/** The yes button. */
+	/*Components of the window*/
 	protected JButton yes = new JButton("Yes");
+	
+	/** The no button. */
 	protected JButton no = new JButton("No");
+	
+	/** The noanswer button. */
 	protected JButton noanswer = new JButton("I don't know");
+	
+	/** The question JLabel. */
 	protected JLabel question = new JLabel();
 
-	//On cree un JPanel
+	/** The pan JPanel. */
+	//On create a JPanel
 	private JPanel pan = new JPanel();
 
 
-	/******CONSTRUCTORS******/
+	/**
+	 * ****CONSTRUCTORS*****.
+	 */
 
 	/**
 	 * Instantiates a new Main_window.
 	 */
 	public Main_window(){
-
+		
+		//set the text of the JLabel (the first question)
 		question.setText("Are you searching an actor ?");
 
 		/***Set the window***/
@@ -75,6 +103,7 @@ public class Main_window extends JFrame implements ActionListener {
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
 
+	    //Centering the components in the window
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -108,16 +137,23 @@ public class Main_window extends JFrame implements ActionListener {
 
 		pan.add(b4);
 
-		//on place tous les ecouteurs pour que chaque composants puisse ecouter les interactions.
+		//We put all the listeners so that each component can listen to the interactions.
 
 		yes.addActionListener((ActionListener) this);
 		no.addActionListener((ActionListener) this);
 		noanswer.addActionListener((ActionListener) this);
 
-		this.setVisible(true);//on rend la fenetre visible
+		this.setVisible(true);//Make the window visible
 	}
+	
+	
+	/**
+	 * ****METHODS*****.
+	 *
+	 * @param e the e
+	 */
 
-	//on implemente la methode actionPerformed permettant de definir le comportement des CheckBox, et du bouton de confirmation(dans l'onglet: Mon panier).
+	//We implement the actionPerformed method to define the behavior of the buttons.
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
@@ -145,8 +181,13 @@ public class Main_window extends JFrame implements ActionListener {
 
 	}
 
-	public static void main(String[] args) {
-		Main_window fen = new Main_window();
-	}
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
+//	public static void main(String[] args) {
+//		Main_window fen = new Main_window();
+//	}
 
 }
