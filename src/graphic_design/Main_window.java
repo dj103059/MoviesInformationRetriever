@@ -161,10 +161,24 @@ public class Main_window extends JFrame implements ActionListener {
 
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
+			Compteur compteur = new Compteur();
+			if(compteur.getCompteur()==1){
+				question.setText("Are you searching a man ?");
+			}
+			else{
+				question.setText("Other questions");
+			}
 		}
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
+			Compteur compteur = new Compteur();
+			if(compteur.getCompteur()==1){
+				question.setText("Are you searching a man ?");
+			}
+			else{
+				question.setText("Other questions");
+			}
 		}
 
 		if(e.getSource()==noanswer){//We implement the action of the button noanswer
@@ -186,8 +200,8 @@ public class Main_window extends JFrame implements ActionListener {
 	 *
 	 * @param args the arguments
 	 */
-//	public static void main(String[] args) {
-//		Main_window fen = new Main_window();
-//	}
+	public static void main(String[] args) {
+		Main_window fen = new Main_window();
+	}
 
 }
