@@ -33,7 +33,7 @@ public class Request {
      * @param filter
      * @return
      */
-    private void addFilter( Filter filter){
+    public void addFilter(Filter filter){
         removeEndQuery();
         setMainQuery(getMainQuery()+filter.getFilter()+"}");
     }

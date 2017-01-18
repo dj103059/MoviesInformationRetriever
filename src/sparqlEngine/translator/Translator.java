@@ -46,15 +46,17 @@ public class Translator {
     /**
      * use the stored component to create the question
      * @param storedComponent
-     * @return
+     * @return askMovie
      */
-    public void translate(StoredComponent storedComponent){
+    public String translate(StoredComponent storedComponent){
 
         if(storedComponent.getFormat() == "rdfs"){
             this.askMovie = this.askMovie + getLabel(storedComponent.getProperty()) +" " + storedComponent.getValue()  +" ?";
         }else{
             this.askMovie = this.askMovie + getLabel(storedComponent.getProperty()) +" " + getLabel(storedComponent.getValue()) +" ?";
         }
+        
+        return getAskMovie();
 
 
     }
