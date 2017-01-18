@@ -107,7 +107,8 @@ public class Translator {
         } catch (EngineException e) {
             e.printStackTrace();
         }
-        return result+"<br>"+resultcoment;
+        return result;
+        //return result+"<br>"+resultcoment;
 
     }
 

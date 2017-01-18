@@ -83,11 +83,11 @@ public class Main_window extends JFrame implements ActionListener {
 	public Main_window(){
 		
 		//set the text of the JLabel (the first question)
-		question.setText("Are you searching an actor ?");
+		question.setText("Is the film released in 2000 ?");
 
 		/***Set the window***/
 		//Define a title to the window
-		this.setTitle("Main window");
+		this.setTitle("MovieRetriever");
 		//Define the size of the window : 400 pixels width and 400 pixels height
 		this.setSize(400, 400);
 		//We now ask our window to position itself at the center.
@@ -200,8 +200,8 @@ public class Main_window extends JFrame implements ActionListener {
 	 *
 	 * @param args the arguments
 	 */
-	public static void main(String[] args) {
-		Main_window fen = new Main_window();
-	}
+//	public static void main(String[] args) {
+//		Main_window fen = new Main_window();
+//	}
 
 }
