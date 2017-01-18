@@ -6,17 +6,22 @@ package init;
  * Created by titanium on 10/01/2017.
  */
 public class StoredComponent {
+	
+	/******ATTRIBUTES******/
+	
     private String property;
     private String value;
     private String format;
 
+    /******CONSTRUCTORS******/
+    
     public StoredComponent(String prop, String val, String format){
         this.property = prop;
         this.value = val;
         this.format = format;
     }
 
-    // getter and setter
+    /******GETTERS AND SETTERS******/
 
     public String getProperty() {
         return property;

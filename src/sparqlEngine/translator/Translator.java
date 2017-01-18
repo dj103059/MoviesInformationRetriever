@@ -31,10 +31,14 @@ r.getResult ??????? */
  * Created by titanium on 10/01/2017.
  */
 public class Translator {
+	
+	/******ATTRIBUTES******/
+	
     private  String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n";
     private  String askMovie = "Your film ";
     private  String result = "<html> Your film is ";
 
+    /******CONSTRUCTORS******/
 
     /**
      * constructor
@@ -42,6 +46,28 @@ public class Translator {
     public Translator(){
 
     }
+    
+    /******GETTERS AND SETTERS******/
+    
+    /**
+     * getter and setter
+     */
+
+
+    public String getAskMovie() {
+        return askMovie;
+    }
+
+    public void setAskMovie(String askMovie) {
+        this.askMovie = askMovie;
+    }
+
+    public String getResult() {
+        return result;
+    }
+    
+    
+    /******CLASS METHODS******/ 
 
     /**
      * use the stored component to create the question
@@ -114,20 +140,5 @@ public class Translator {
 
     }
 
-    /**
-     * getter and setter
-     */
-
-
-    public String getAskMovie() {
-        return askMovie;
-    }
-
-    public void setAskMovie(String askMovie) {
-        this.askMovie = askMovie;
-    }
-
-    public String getResult() {
-        return result;
-    }
+   
 }

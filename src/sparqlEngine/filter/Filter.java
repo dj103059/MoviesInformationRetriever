@@ -9,13 +9,30 @@ import init.StoredComponent;
  * Created by titanium on 10/01/2017.
  */
 public class Filter {
+	
+	/******ATTRIBUTES******/
 
     private String filter;
 
+    /******CONSTRUCTORS******/
+    
     public Filter(
     ){
 
     }
+    
+    /******GETTERS AND SETTERS******/
+    
+    public String getFilter() {
+        return filter;
+    }
+
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
+    
+    
+    /******CLASS METHODS******/
 
     /**
      * build  filter with the good property and the good value
@@ -44,11 +61,5 @@ public class Filter {
 
     }
 
-    public String getFilter() {
-        return filter;
-    }
 
-    public void setFilter(String filter) {
-        this.filter = filter;
-    }
 }

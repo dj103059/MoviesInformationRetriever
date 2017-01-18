@@ -12,13 +12,20 @@ import java.io.InputStream;
  * Created by titanium on 10/01/2017.
  */
 public class Initialisation {
+	
+	/******ATTRIBUTES******/
 
     public static Graph graph = Graph.create(true);
 
-
+    /******CONSTRUCTORS******/
+    
     public Initialisation(){
         loadfile();
     }
+    
+    
+    /******CLASS METHODS******/
+    
     /**
      * load file for Graph
      */
