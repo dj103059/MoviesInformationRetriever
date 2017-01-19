@@ -1,5 +1,5 @@
 //current package
-package graphic_design;
+package akinator.graphic_design;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

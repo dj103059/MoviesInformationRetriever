@@ -1,6 +1,6 @@
-package sparqlEngine.request;
+package akinator.sparqlEngine.request;
 
-import sparqlEngine.filter.Filter;
+import akinator.sparqlEngine.filter.Filter;
 
 /**
  * Class for the request representation

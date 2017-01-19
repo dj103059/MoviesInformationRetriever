@@ -1,7 +1,6 @@
-package sparqlEngine.filter;
+package akinator.sparqlEngine.filter;
 
-import com.oracle.webservices.internal.api.message.PropertySet;
-import init.StoredComponent;
+import akinator.init.StoredComponent;
 
 /**
  * Class for the representation of the filter

@@ -1,4 +1,4 @@
-package init;
+package akinator.init;
 
 import fr.inria.edelweiss.kgraph.core.Graph;
 import fr.inria.edelweiss.kgtool.load.Load;

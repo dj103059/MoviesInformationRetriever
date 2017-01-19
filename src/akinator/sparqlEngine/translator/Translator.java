@@ -1,12 +1,12 @@
-package sparqlEngine.translator;
+package akinator.sparqlEngine.translator;
 
 import fr.inria.acacia.corese.api.IDatatype;
 import fr.inria.acacia.corese.exceptions.EngineException;
 import fr.inria.edelweiss.kgram.core.Mapping;
 import fr.inria.edelweiss.kgram.core.Mappings;
 import fr.inria.edelweiss.kgraph.query.QueryProcess;
-import init.Initialisation;
-import init.StoredComponent;
+import akinator.init.Initialisation;
+import akinator.init.StoredComponent;
 
 /* 1er boucle
  Translator t =  new Translator().translate(storedcomponent);

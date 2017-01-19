@@ -1,12 +1,4 @@
-import com.sun.org.apache.xml.internal.security.Init;
-import fr.inria.edelweiss.kgraph.core.Graph;
-import init.Initialisation;
-import init.StoredComponent;
-import sparqlEngine.filter.Filter;
-import sparqlEngine.request.Request;
-import sparqlEngine.translator.Translator;
-
-import java.io.File;
+package akinator;
 
 public class Main {
 
