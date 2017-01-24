@@ -5,6 +5,7 @@ import dataLoader.Main.ontologie.team.Producer;
 import dataLoader.Main.ontologie.team.Scriptwriter;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 //import sun.plugin.perf.PluginRollup;
 
@@ -42,6 +43,7 @@ public class Movie {
     public ArrayList<Producer> producers = new ArrayList<Producer>();
     public ArrayList<Scriptwriter> writers = new ArrayList<Scriptwriter>();
     public ArrayList<Actor> actors = new ArrayList<Actor>();
+    public ArrayList<Characters> characters = new ArrayList<Characters>();
     public String label ;
     public String date ;
     public float duration;
@@ -69,11 +71,11 @@ public class Movie {
     ResultSet
      */
     //public static ArrayList<Movie> constructListOfMovie(int length){
-    public static ArrayList<Movie> constructListOfMovie(Query q, QueryExecution qr, ResultSet r){
+    public static ArrayList<Movie> constructListOfMovie(Query q, QueryExecution qr, ResultSet r, Model m){
         //construit la liste de film
         ArrayList<Movie> movies = new ArrayList<Movie>();
         q = create(request);
-        qr = QueryExecutionFactory.sparqlService("http://data.linkedmdb.org/sparql", q);
+        qr = QueryExecutionFactory.create(q, m);
         r = qr.execSelect();
         Movie movietemp;
         //System.out.println("voici ma requête" +request);
@@ -99,7 +101,6 @@ public class Movie {
                 }
             }
         }
-
         if(Objects.equals(movies.get(movies.size() - 2).getUri(), movies.get(movies.size() - 1).getUri())){
             movies.remove(movies.size()-1);
         }
@@ -107,49 +108,25 @@ public class Movie {
     }
 
 
-    public static ArrayList<Movie> fusionType(ArrayList<Movie> movies,ArrayList<Type> types ){
-        for(int i = 0; i<movies.size();i++){
-            for(int j=0; j<types.size();j++){
-                if(Objects.equals(movies.get(i).getUri(), types.get(j).uri)){
-                    movies.get(i).addType(types.get(j));
-                }
-            }
-        }
-        return movies;
+    public void addListOfCharacters(ArrayList<Characters> characterses){
+        this.characters =characterses;
     }
 
-    public static ArrayList<Movie> fusionProducer(ArrayList<Movie> movies,ArrayList<Producer>  producers){
-        for(int i = 0; i<movies.size();i++){
-            for(int j=0; j<producers.size();j++){
-                if(Objects.equals(movies.get(i).getUri(), producers.get(j).uri)){
-                    movies.get(i).addProducer(producers.get(j));
-                }
-            }
-        }
-        return movies;
+
+    public void addListOfProducer(ArrayList<Producer> producers){
+        this.producers =producers;
     }
 
-    public static ArrayList<Movie> fusionScriptwriter(ArrayList<Movie> movies, ArrayList<Scriptwriter>  scriptwriters){
-        for(int i = 0; i<movies.size();i++){
-            for(int j=0; j<scriptwriters.size();j++){
-                if(Objects.equals(movies.get(i).getUri(), scriptwriters.get(j).uri)){
-                    movies.get(i).addScriptwriter(scriptwriters.get(j));
-                }
-            }
-        }
-        return movies;
+    public void addListOfScriptwriter(ArrayList<Scriptwriter> scriptwriters){
+        this.writers = scriptwriters;
     }
 
-    public void addType(Type type){
-        this.types.add(type);
+    public void addListOfType(ArrayList<Type> listoftypes){
+        this.types = listoftypes;
     }
 
-    public void addProducer(Producer producer){
-        this.producers.add(producer);
-    }
-
-    public void addScriptwriter(Scriptwriter scriptwriter){
-        this.writers.add(scriptwriter);
+    public void addListOfActors(ArrayList<Actor> listofactors){
+        this.actors = listofactors;
     }
     /**
         getter and setter
@@ -181,6 +158,14 @@ public class Movie {
         firstsentence += "\n writer : ";
         for(int k = 0;k<this.writers.size();k++){
             firstsentence += this.writers.get(k).name+" ,";
+        }
+        firstsentence += "\n actor : ";
+        for(int k = 0;k<this.actors.size();k++){
+            firstsentence += this.actors.get(k).name+" ,";
+        }
+        firstsentence += "\n character : ";
+        for(int k = 0;k<this.characters.size();k++){
+            firstsentence += this.characters.get(k).name+" ,";
         }
         return  firstsentence;
 
