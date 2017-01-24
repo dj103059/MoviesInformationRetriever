@@ -16,6 +16,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import akinator.init.Initialisation;
+import akinator.init.StoredComponent;
+import akinator.sparqlEngine.filter.Filter;
+import akinator.sparqlEngine.request.Request;
+import akinator.sparqlEngine.translator.Translator;
+
 
 
 
@@ -29,7 +35,7 @@ public class Main_window extends JFrame implements ActionListener {
 	 */
 	//intern class: each instance increment the attribut compteur
 	public static class Compteur {
-		
+
 		/** The compteur. */
 		public static int compteur = 0;
 
@@ -54,21 +60,30 @@ public class Main_window extends JFrame implements ActionListener {
 	/** ****ATTRIBUTS*****. */
 
 	private static final long serialVersionUID = 1L;
-	
+
+	public int compteur = 0;
+
+	java.util.ArrayList <StoredComponent> listStoredcomponent = new java.util.ArrayList <StoredComponent>();
+
+	public Initialisation initialisation= new Initialisation(); //Load the file and the ontology 
+	public Translator t =  new Translator();
+	public Filter f = new Filter(); //instanciate a new filter to construct the filter of the query
+	public Request r  = new Request(); //instanciate a translator to create the question in a natural language
+
 	protected String questionString;
-	
+
 	boolean reponse;
 
 	/** The yes button. */
 	/*Components of the window*/
 	protected JButton yes = new JButton("Yes");
-	
+
 	/** The no button. */
 	protected JButton no = new JButton("No");
-	
+
 	/** The noanswer button. */
 	protected JButton noanswer = new JButton("I don't know");
-	
+
 	/** The question JLabel. */
 	protected JLabel question = new JLabel();
 
@@ -84,12 +99,16 @@ public class Main_window extends JFrame implements ActionListener {
 	/**
 	 * Instantiates a new Main_window.
 	 */
-	public Main_window(String questionString){
-		
-		this.questionString = questionString;
-		
+	public Main_window(){
+
+		this.questionString = "Chargement...";
+
+		listStoredcomponent.add(new StoredComponent("hasActor", "Orlando_Bloom", ""));
+		listStoredcomponent.add(new StoredComponent("isTypeOf", "Pirate", ""));
+		listStoredcomponent.add(new StoredComponent("wasReleasedIn", "2002", "rdfs"));
+
 		//set the text of the JLabel (the first question)
-		question.setText(questionString);
+		//question.setText(questionString);
 
 		/***Set the window***/
 		//Define a title to the window
@@ -109,7 +128,7 @@ public class Main_window extends JFrame implements ActionListener {
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
 
-	    //Centering the components in the window
+		//Centering the components in the window
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -151,9 +170,9 @@ public class Main_window extends JFrame implements ActionListener {
 
 		this.setVisible(true);//Make the window visible
 	}
-	
+
 	/******GETTERS AND SETTERS******/
-	
+
 	public String getQuestionString() {
 		return questionString;
 	}
@@ -172,7 +191,7 @@ public class Main_window extends JFrame implements ActionListener {
 	public void setReponse(boolean reponse) {
 		this.reponse = reponse;
 	}
-	
+
 	/**
 	 * ****METHODS*****.
 	 *
@@ -188,44 +207,52 @@ public class Main_window extends JFrame implements ActionListener {
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
 			reponse=true;
-			Compteur compteur = new Compteur();
-			if(compteur.getCompteur()==1){
-				question.setText("Are you searching a man ?");
-			}
-			else{
-				question.setText("Other questions");
-			}
+			
 		}
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
 			reponse=false;
-			Compteur compteur = new Compteur();
-			if(compteur.getCompteur()==1){
-				question.setText("Are you searching a man ?");
-			}
-			else{
-				question.setText("Other questions");
-			}
+			
 		}
 
 		if(e.getSource()==noanswer){//We implement the action of the button noanswer
 			System.out.println("User press: I don't know");
-			Compteur compteur = new Compteur();
-			if(compteur.getCompteur()==1){
-				question.setText("Are you searching a man ?");
-			}
-			else{
-				question.setText("Other questions");
-			}
+			
 
 		}
-
+		this.MainEngine(reponse);
 	}
 
 	public String setQuestion(String newQuestion){
 		this.question.setText(newQuestion);
 		return newQuestion;
+	}
+	
+	public void translateAndShow(){
+		String question = t.translate(listStoredcomponent.get(compteur)); // use the storedcomponent to create the question in a natural language (PB: nullPointeurException, is the problem due to the issue in the load method ?)
+		System.out.println(question);
+		this.setQuestion(question);
+	}
+	
+	public void MainEngine(boolean reponse){
+		f.constructFilter(listStoredcomponent.get(this.compteur), reponse);
+		r.addFilter(f);
+		//System.out.println(r.getResult());
+		this.compteur++;
+		if(r.getResult()=="NONE"){
+			this.translateAndShow();
+		}
+		else{
+			this.showResult();
+		}
+			//System.out.println("final :"+r.getResult());
+	}
+	
+	public void showResult(){
+		r.setResult();
+		this.setQuestion(r.result);
+		//enlever les boutons et le remplacer 
 	}
 
 
@@ -235,8 +262,8 @@ public class Main_window extends JFrame implements ActionListener {
 	 *
 	 * @param args the arguments
 	 */
-//	public static void main(String[] args) {
-//		Main_window fen = new Main_window();
-//	}
+	//	public static void main(String[] args) {
+	//		Main_window fen = new Main_window();
+	//	}
 
 }

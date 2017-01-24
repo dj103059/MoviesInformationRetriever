@@ -23,6 +23,10 @@ public class Request {
     		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
     private String mainQuery = "Select distinct ?label ?comment  where { \n"+"?uri rdfs:label ?label.\n" +
             "  ?uri rdfs:comment ?comment.\n"+"}";
+    public String title;
+    public String comment;
+    public  String result = "<html> Your film is ";
+    
 
     /******CONSTRUCTORS******/
     
@@ -47,10 +51,10 @@ public class Request {
      * @return
      */
     public String getResult(){
-    	String result = "";
+    	String result = "OK";
         //System.out.print(queryString);
         Query query = QueryFactory.create(this.mainQuery);
-        System.out.println(this.mainQuery);
+        //System.out.println(this.mainQuery);
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{
         	org.apache.jena.query.ResultSet results = qexec.execSelect();
@@ -60,8 +64,10 @@ public class Request {
         	while (results.hasNext()){
         		compteur++;
         		QuerySolution soln = results.nextSolution();
-        		Literal name = soln.getLiteral("label");
-        		result = name.toString();
+        		Literal title = soln.getLiteral("label");
+        		Literal comment = soln.getLiteral("comment");
+        		this.title = title.getString();
+        		this.comment = comment.getString();
         		
         	}
         	if(compteur>1){
@@ -92,5 +98,7 @@ public class Request {
         setMainQuery(getMainQuery().substring(0,getMainQuery().length()-1));
     }
 
- 
+    public void setResult(){
+        result = result + " " + title +"<br/>" + comment +"</html>";
+    }
 }

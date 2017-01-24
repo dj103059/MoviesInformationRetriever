@@ -6,7 +6,7 @@ import dataLoader.Main.ontologie.team.Scriptwriter;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
-import sun.plugin.perf.PluginRollup;
+//import sun.plugin.perf.PluginRollup;
 
 import java.util.ArrayList;
 import java.util.Objects;
