@@ -1,8 +1,9 @@
 package akinator.init;
 
-import fr.inria.edelweiss.kgraph.core.Graph;
-import fr.inria.edelweiss.kgtool.load.Load;
-import fr.inria.edelweiss.kgtool.load.LoadException;
+
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.util.FileManager;
 
 import java.io.InputStream;
 
@@ -15,14 +16,22 @@ public class Initialisation {
 	
 	/******ATTRIBUTES******/
 
-    public static Graph graph = Graph.create(true);
+    private static Model model;
 
-    /******CONSTRUCTORS******/
+    
+
+
+	/******CONSTRUCTORS******/
     
     public Initialisation(){
         loadfile();
     }
     
+    /******GETTERS******/
+    
+    public static Model getModel() {
+		return model;
+	}
     
     /******CLASS METHODS******/
     
@@ -30,19 +39,24 @@ public class Initialisation {
      * load file for Graph
      */
     public void loadfile (){
-        Load load = Load.create(graph);
-        try {
+    	
+    	  final String inputFileName  = "File/RDFS_file/OntologieMovie.owl";
 
-            InputStream stream = Load.class.getResourceAsStream("/OntologieMovie.owl");
-            if(stream == null) {
-                System.out.println("input stream == nul");
-            }
-            //not sure about the path
-            load.loadResource("File/RDFS_file/OntologieMovie.owl",0);
-        } catch (LoadException e) {
-            e.printStackTrace();
+    	// créer un modèle vide
+    	  model = ModelFactory.createDefaultModel();
 
-        }
+    	 // utiliser le FileManager pour trouver le fichier d'entrée
+    	 InputStream in = FileManager.get().open( inputFileName );
+    	if (in == null) {
+    	    throw new IllegalArgumentException(
+    	                                 "Fichier: " + inputFileName + " non trouvé");
+    	}
+
+    	// lire le fichier owl
+    	model.read(in, null);
+
+    	// l'écrire sur la sortie standard
+    	//model.write(System.out);
        // System.out.println("load file : File/RDFS_file/OntologieMovie.owl");
 
     }

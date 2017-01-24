@@ -1,10 +1,17 @@
 package akinator.sparqlEngine.translator;
 
-import fr.inria.acacia.corese.api.IDatatype;
-import fr.inria.acacia.corese.exceptions.EngineException;
-import fr.inria.edelweiss.kgram.core.Mapping;
-import fr.inria.edelweiss.kgram.core.Mappings;
-import fr.inria.edelweiss.kgraph.query.QueryProcess;
+
+import java.sql.ResultSet;
+
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.util.FileManager;
+
+import akinator.Main;
 import akinator.init.Initialisation;
 import akinator.init.StoredComponent;
 
@@ -115,26 +122,27 @@ public class Translator {
     }
 
     /**
-     * realise the SPARQL request for a querry based on a label
-     * @param querry
+     * Realize the SPARQL request for a query based on a label
+     * @param query
      * @return
      */
-    private String getResultFromMap(String querry){
+    private String getResultFromMap(String queryString){
         String result = "";
-
-        QueryProcess exec = QueryProcess.create(Initialisation.graph);
-        try {
-            Mappings map = exec.query(querryLabel);
-            for (Mapping m : map) {
-                IDatatype dtlabel = (IDatatype) map.getValue("?label");
-                IDatatype dtcomment = (IDatatype) map.getValue("?labelcomment");
-                result =  dtlabel.stringValue();
-                result =  dtcomment.stringValue();
-            }
-
-        } catch (EngineException e) {
-            e.printStackTrace();
-        }
+        
+        //Query query = QueryFactory.create(queryString);
+        //QueryExecution qexec = QueryExecutionFactory.create(query,Initialisation.getModel());
+//        try{
+//        	org.apache.jena.query.ResultSet results = qexec.execSelect();
+//        	while (results.hasNext()){
+//        		QuerySolution soln = results.nextSolution();
+//        		Literal name = soln.getLiteral("label");
+//        		result = name.toString();
+//        	}
+//        }
+//        finally{
+//        	qexec.close();
+//        }
+        
         return result;
         //return result+"<br>"+resultcoment;
 
