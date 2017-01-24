@@ -85,9 +85,9 @@ public class Translator {
     public String translate(StoredComponent storedComponent){
 
         if(storedComponent.getFormat() == "rdfs"){
-            this.askMovie = this.askMovie + getLabel(storedComponent.getProperty()) +" " + storedComponent.getValue()  +" ?";
+            this.askMovie = "Your film " + getLabel(storedComponent.getProperty()) +" " + storedComponent.getValue()  +" ?";
         }else{
-            this.askMovie = this.askMovie + getLabel(storedComponent.getProperty()) +" " + getLabel(storedComponent.getValue()) +" ?";
+            this.askMovie = "Your film " + getLabel(storedComponent.getProperty()) +" " + getLabel(storedComponent.getValue()) +" ?";
         }
         
         return getAskMovie();

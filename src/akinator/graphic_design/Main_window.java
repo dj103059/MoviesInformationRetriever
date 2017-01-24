@@ -54,6 +54,10 @@ public class Main_window extends JFrame implements ActionListener {
 	/** ****ATTRIBUTS*****. */
 
 	private static final long serialVersionUID = 1L;
+	
+	protected String questionString;
+	
+	boolean reponse;
 
 	/** The yes button. */
 	/*Components of the window*/
@@ -80,10 +84,12 @@ public class Main_window extends JFrame implements ActionListener {
 	/**
 	 * Instantiates a new Main_window.
 	 */
-	public Main_window(){
+	public Main_window(String questionString){
+		
+		this.questionString = questionString;
 		
 		//set the text of the JLabel (the first question)
-		question.setText("Is the film released in 2000 ?");
+		question.setText(questionString);
 
 		/***Set the window***/
 		//Define a title to the window
@@ -146,6 +152,26 @@ public class Main_window extends JFrame implements ActionListener {
 		this.setVisible(true);//Make the window visible
 	}
 	
+	/******GETTERS AND SETTERS******/
+	
+	public String getQuestionString() {
+		return questionString;
+	}
+
+
+	public void setQuestionString(String questionString) {
+		this.questionString = questionString;
+	}
+
+
+	public boolean isReponse() {
+		return reponse;
+	}
+
+
+	public void setReponse(boolean reponse) {
+		this.reponse = reponse;
+	}
 	
 	/**
 	 * ****METHODS*****.
@@ -161,6 +187,7 @@ public class Main_window extends JFrame implements ActionListener {
 
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
+			reponse=true;
 			Compteur compteur = new Compteur();
 			if(compteur.getCompteur()==1){
 				question.setText("Are you searching a man ?");
@@ -172,6 +199,7 @@ public class Main_window extends JFrame implements ActionListener {
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
+			reponse=false;
 			Compteur compteur = new Compteur();
 			if(compteur.getCompteur()==1){
 				question.setText("Are you searching a man ?");
@@ -194,6 +222,13 @@ public class Main_window extends JFrame implements ActionListener {
 		}
 
 	}
+
+	public String setQuestion(String newQuestion){
+		this.question.setText(newQuestion);
+		return newQuestion;
+	}
+
+
 
 	/**
 	 * The main method.

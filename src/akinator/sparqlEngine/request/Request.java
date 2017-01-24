@@ -50,13 +50,22 @@ public class Request {
     	String result = "";
         //System.out.print(queryString);
         Query query = QueryFactory.create(this.mainQuery);
+        System.out.println(this.mainQuery);
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{
         	org.apache.jena.query.ResultSet results = qexec.execSelect();
+        	//System.out.println(results.getRowNumber());
+        	
+        	int compteur = 0;
         	while (results.hasNext()){
+        		compteur++;
         		QuerySolution soln = results.nextSolution();
         		Literal name = soln.getLiteral("label");
         		result = name.toString();
+        		
+        	}
+        	if(compteur>1){
+        		return "NONE";
         	}
         }
         finally{
