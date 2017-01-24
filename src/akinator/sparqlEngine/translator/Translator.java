@@ -41,7 +41,8 @@ public class Translator {
 	
 	/******ATTRIBUTES******/
 	
-    private  String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n";
+    private  String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
+    		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
     private  String askMovie = "Your film ";
     private  String result = "<html> Your film is ";
 
@@ -104,8 +105,8 @@ public class Translator {
 
         //create request
         String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n" +
-                "Select ?label where {\n mo:"+
-                obj + "rdfs:label ?label.}";
+        		"prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>"+" Select ?label where {\n mo:"+
+                obj + " rdfs:label ?label.}";
 
         propertyLabel = getResultFromMap(querryLabel);
 
@@ -128,20 +129,21 @@ public class Translator {
      */
     private String getResultFromMap(String queryString){
         String result = "";
-        
-        //Query query = QueryFactory.create(queryString);
-        //QueryExecution qexec = QueryExecutionFactory.create(query,Initialisation.getModel());
-//        try{
-//        	org.apache.jena.query.ResultSet results = qexec.execSelect();
-//        	while (results.hasNext()){
-//        		QuerySolution soln = results.nextSolution();
-//        		Literal name = soln.getLiteral("label");
-//        		result = name.toString();
-//        	}
-//        }
-//        finally{
-//        	qexec.close();
-//        }
+        //System.out.print(queryString);
+        Query query = QueryFactory.create(queryString);
+        QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
+        try{
+        	org.apache.jena.query.ResultSet results = qexec.execSelect();
+        	while (results.hasNext()){
+        		QuerySolution soln = results.nextSolution();
+        		Literal name = soln.getLiteral("label");
+        		result = name.toString();
+        		//System.out.println(result);
+        	}
+        }
+        finally{
+        	qexec.close();
+        }
         
         return result;
         //return result+"<br>"+resultcoment;
