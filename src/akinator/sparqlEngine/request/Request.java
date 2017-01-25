@@ -25,7 +25,7 @@ public class Request {
             "  ?uri rdfs:comment ?comment.\n"+"}";
     public String title;
     public String comment;
-    public  String result = "<html> Your film is ";
+    public  String result = "<html>Your film is: ";
     
 
     /******CONSTRUCTORS******/

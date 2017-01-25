@@ -1,8 +1,13 @@
 //current package
 package akinator.graphic_design;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.TextArea;
 
 //imports for graphism
 
@@ -15,6 +20,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import akinator.init.Initialisation;
 import akinator.init.StoredComponent;
@@ -86,10 +94,16 @@ public class Main_window extends JFrame implements ActionListener {
 
 	/** The question JLabel. */
 	protected JLabel question = new JLabel();
-
+	
+	protected JTextArea textPane = new JTextArea("Hello Master!", 21, 33);
+		
 	/** The pan JPanel. */
 	//On create a JPanel
 	private JPanel pan = new JPanel();
+	
+	protected int window_width; //width of the window
+	
+	protected int window_height; //height of the window
 
 
 	/**
@@ -100,6 +114,9 @@ public class Main_window extends JFrame implements ActionListener {
 	 * Instantiates a new Main_window.
 	 */
 	public Main_window(){
+		
+		window_width=this.getWidth();
+	    window_height=this.getHeight();
 
 		this.questionString = "Chargement...";
 
@@ -127,7 +144,7 @@ public class Main_window extends JFrame implements ActionListener {
 
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
-
+        
 		//Centering the components in the window
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -225,7 +242,7 @@ public class Main_window extends JFrame implements ActionListener {
 	}
 
 	public String setQuestion(String newQuestion){
-		this.question.setText(newQuestion);
+		this.question.setText(newQuestion); 
 		return newQuestion;
 	}
 	
@@ -251,7 +268,20 @@ public class Main_window extends JFrame implements ActionListener {
 	
 	public void showResult(){
 		r.setResult();
-		this.setQuestion(r.result);
+		String result = r.result;
+		result = result.replace("<br/>","\n\nSummary: \n\n");
+		result = result.replace("<html>","");
+		result = result.replace("</html>","");
+		pan.removeAll(); //remove all the components in the JPanel
+		pan.setBounds(window_width,window_height, 400, 400); //Set the dimension of the JPanel
+		textPane.setLineWrap(true); //Sets the line-wrapping policy of the text area. If set to true the lines will be wrapped if they are too long to fit within the allocated width.
+		textPane.setText(result);//Set the text of the textPane with the comments of the film
+		pan.add(new JScrollPane(textPane)); //add the scroll
+		pan.setBackground(Color.BLUE);//Set the background color of the pan
+		pan.validate();// Validate our new JPanel
+		pan.repaint(); //redraw our new JPanel
+		
+		System.out.println(result); //print the result
 		//enlever les boutons et le remplacer 
 	}
 
