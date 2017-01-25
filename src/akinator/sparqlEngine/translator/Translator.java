@@ -1,17 +1,12 @@
 package akinator.sparqlEngine.translator;
 
-
-import java.sql.ResultSet;
-
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.util.FileManager;
 
-import akinator.Main;
 import akinator.init.Initialisation;
 import akinator.init.StoredComponent;
 
@@ -41,7 +36,7 @@ public class Translator {
 	
 	/******ATTRIBUTES******/
 	
-    private  String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
+	private String querryLabel = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
     		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
     private  String askMovie = "Your film ";
     private  String result = "<html> Your film is ";
