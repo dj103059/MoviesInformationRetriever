@@ -7,14 +7,19 @@ import dataLoader.Main.ontologie.Type;
 import dataLoader.Main.ontologie.team.Actor;
 import dataLoader.Main.ontologie.team.Producer;
 import dataLoader.Main.ontologie.team.Scriptwriter;
+import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
 import org.apache.log4j.varia.NullAppender;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -42,7 +47,7 @@ public class MainLoader {
         InputStream in = FileManager.get().open( inputFileName );
 
         // lire le fichier owl
-        model.read(in,null, "N-TRIPLE");
+       // model.read(in,null, "N-TRIPLE");
         System.out.println("fini load dataset");
         //  FIN initialisation /////////////////
 
@@ -59,7 +64,7 @@ public class MainLoader {
 
 
         // for movies
-        movies = Movie.constructListOfMovie(query,queryexec,resultSet , model);
+        /*movies = Movie.constructListOfMovie(query,queryexec,resultSet , model);
         movies = Movie.refactorListofMovie(movies);
 
 
@@ -72,8 +77,51 @@ public class MainLoader {
             movie.addListOfActors(Actor.constructListOfActor(movie.getUri(),query,queryexec,resultSet,model));
             movie.addListOfCharacters(Characters.constructListOfCharacters(movie.getUri(),query,queryexec,resultSet,model));
             System.out.println(movie.toString());
+        }*/
+/////CODE POUR AJOUTER + MODIFIER LE FICHIER OWL
+        Model m = ModelFactory.createDefaultModel();
+
+        InputStream test = FileManager.get().open("/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie.owl");
+        m.read(test, "RDF/XML");
+        String NS="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#";
+
+        Resource r = m.createResource(NS+"http://data.linkedmdb.org/resource/film/2676");//like subject
+        Property p1 =m.createProperty(NS+"Duration");
+        Property p2 =m.createProperty(NS+"wasReleasedIn");
+        Property p3 =m.createProperty("http://www.w3.org/2000/01/rdf-schema#label");
+        Property p4 =m.createProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
+        r.addProperty(p1, "93.0 min", XSDDatatype.XSDfloat);
+        r.addProperty(p2, "1928", XSDDatatype.XSDstring);
+        r.addProperty(p3, "Champagne", XSDDatatype.XSDstring);
+        r.addProperty(p4, NS+"Movie");
+
+        try {
+            m.write(new FileOutputStream("/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie1.owl"), "RDF/XML");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
+        ///////////////////////////////////////
+
+        /*
+        Model m = ModelFactory.createDefaultModel();
+        m.read("/Users/heshanjayasinghe/Documents/A-enigmaProject/jena_Enigma/src/jena_enigma/Enigma.RDF", "RDF/XML");
+        String NS="http://www.heshjayasinghe.webatu.com/Enigma.RDF#";
+
+        Resource r = m.createResource(NS+"user8");//like subject
+        Property p1 =m.createProperty(NS+"lname");
+        Property p2 =m.createProperty(NS+"email");
+        Property p3 =m.createProperty(NS+"fname");
+        Property p4 =m.createProperty(NS+"password");
+
+
+        r.addProperty(p1, "thathasara", XSDDatatype.XSDstring);
+        r.addProperty(p2, "nt@gmail.com", XSDDatatype.XSDstring);
+        r.addProperty(p3, "nipun", XSDDatatype.XSDstring);
+        r.addProperty(p4, "t123", XSDDatatype.XSDstring);
+      //   m.write(System.out,"thurtle");
+          m.write(new FileOutputStream("/Users/heshanjayasinghe/Documents/A-enigmaProject/jena_Enigma/src/jena_enigma/Enigma.RDF"), "RDF/XML");
+         */
         // for types
 
 
