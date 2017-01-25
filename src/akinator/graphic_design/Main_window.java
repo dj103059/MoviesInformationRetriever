@@ -29,6 +29,7 @@ import akinator.sparqlEngine.translator.Translator;
 
 
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Main_window.
  */
@@ -65,17 +66,25 @@ public class Main_window extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
+	/** The compteur. */
 	public int compteur = 0;
 
+	/** The list storedcomponent. */
 	java.util.ArrayList <StoredComponent> listStoredcomponent = new java.util.ArrayList <StoredComponent>();
 
+	/** The initialisation. */
 	public Initialisation initialisation= new Initialisation(); //Load the file and the ontology 
-	public Translator t =  new Translator();
+	
+	/** The t. */
+	public Translator t =  new Translator();//instanciate a new Translator to construct the questions
+	
+	/** The f. */
 	public Filter f = new Filter(); //instanciate a new filter to construct the filter of the query
+	
+	/** The r. */
 	public Request r  = new Request(); //instanciate a translator to create the question in a natural language
 
-	protected String questionString;
-
+	/** The reponse of the user to the question. */
 	boolean reponse;
 
 	/** The yes button. */
@@ -91,14 +100,17 @@ public class Main_window extends JFrame implements ActionListener {
 	/** The question JLabel. */
 	protected JLabel question = new JLabel();
 	
+	/** The text pane to display the result (film name and summary). */
 	protected JTextArea textPane = new JTextArea("Hello Master!", 21, 33);
 		
-	/** The pan JPanel. */
+	/** The pan JPanel to put our components. */
 	//On create a JPanel
 	private JPanel pan = new JPanel();
 	
+	/** The window width. */
 	protected int window_width; //width of the window
 	
+	/** The window height. */
 	protected int window_height; //height of the window
 
 
@@ -111,17 +123,14 @@ public class Main_window extends JFrame implements ActionListener {
 	 */
 	public Main_window(){
 		
-		window_width=this.getWidth();
-	    window_height=this.getHeight();
+		window_width=this.getWidth(); //initialize the attribute window_width with the width of the window
+	    window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
 
-		this.questionString = "Chargement...";
-
+	    //add StoredComponent to the list. This list will define what type of questions we will ask to the user. 
 		listStoredcomponent.add(new StoredComponent("hasActor", "Orlando_Bloom", ""));
 		listStoredcomponent.add(new StoredComponent("isTypeOf", "Pirate", ""));
 		listStoredcomponent.add(new StoredComponent("wasReleasedIn", "2002", "rdfs"));
-
-		//set the text of the JLabel (the first question)
-		//question.setText(questionString);
+		
 
 		/***Set the window***/
 		//Define a title to the window
@@ -136,7 +145,6 @@ public class Main_window extends JFrame implements ActionListener {
 		this.setResizable(false);
 		//The windows will be always on top 
 		this.setAlwaysOnTop(false);
-
 
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
@@ -153,13 +161,14 @@ public class Main_window extends JFrame implements ActionListener {
 
 		//Creating a Container with Horizontal Management
 		Box b1 = Box.createHorizontalBox();
-		b1.add(question);
+		b1.add(question); //add the JLabel which will contain the question ask to the user in the JPanel
 
 		Box b2 = Box.createHorizontalBox();
-		b2.add(new JLabel("<html><br><br></html>"));
+		b2.add(new JLabel("<html><br><br></html>"));//add new line between the question and the buttons in the JPanel
 
 		//Creating a Container with Horizontal Management
 		Box b3 = Box.createHorizontalBox();
+		//add the buttons
 		b3.add(yes);
 		b3.add(new JLabel("  "));
 		b3.add(no);
@@ -168,15 +177,16 @@ public class Main_window extends JFrame implements ActionListener {
 
 		//Creating a Container with Vertical Management
 		Box b4 = Box.createVerticalBox();
+		//add the three precedents Box (the question, the new lines and the buttons)
 		b4.add(b1);
 		b4.add(b2);
 		b4.add(b3);
 
-
+		//add all these components to the JPanel
 		pan.add(b4);
 
+		
 		//We put all the listeners so that each component can listen to the interactions.
-
 		yes.addActionListener((ActionListener) this);
 		no.addActionListener((ActionListener) this);
 		noanswer.addActionListener((ActionListener) this);
@@ -184,48 +194,47 @@ public class Main_window extends JFrame implements ActionListener {
 		this.setVisible(true);//Make the window visible
 	}
 
-	/******GETTERS AND SETTERS******/
-
-	public String getQuestionString() {
-		return questionString;
-	}
-
-
-	public void setQuestionString(String questionString) {
-		this.questionString = questionString;
-	}
-
-
+	/*****GETTERS AND SETTERS*****/
+	 
+	 
+	/**
+	 * @return true, if is reponse
+	 */
 	public boolean isReponse() {
 		return reponse;
 	}
 
 
+	/**
+	 * Sets the reponse.
+	 *
+	 * @param reponse the new reponse
+	 */
 	public void setReponse(boolean reponse) {
 		this.reponse = reponse;
 	}
 
-	/**
-	 * ****METHODS*****.
-	 *
-	 * @param e the e
-	 */
-
+	
+	
+	/*****METHODS*****/
+	 
 	//We implement the actionPerformed method to define the behavior of the buttons.
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
+	/**
+	 * @param e the e
+	 */
 	public void actionPerformed(ActionEvent e) {
-
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
-			reponse=true;
+			reponse=true; //set the response of the user to yes
 			
 		}
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
-			reponse=false;
+			reponse=false; //set the response of the user to no
 			
 		}
 
@@ -237,17 +246,31 @@ public class Main_window extends JFrame implements ActionListener {
 		this.MainEngine(reponse);
 	}
 
+	/**
+	 * Sets the question in the window.
+	 *
+	 * @param newQuestion the new question
+	 * @return the string
+	 */
 	public String setQuestion(String newQuestion){
 		this.question.setText(newQuestion); 
 		return newQuestion;
 	}
 	
+	/**
+	 * Translate and show the question in the window.
+	 */
 	public void translateAndShow(){
 		String question = t.translate(listStoredcomponent.get(compteur)); // use the storedcomponent to create the question in a natural language (PB: nullPointeurException, is the problem due to the issue in the load method ?)
 		System.out.println(question);
 		this.setQuestion(question);
 	}
 	
+	/**
+	 * Main engine. If we find one film, we show the result. Else return NONE and do translateAndShow
+	 *
+	 * @param reponse the reponse
+	 */
 	public void MainEngine(boolean reponse){
 		f.constructFilter(listStoredcomponent.get(this.compteur), reponse);
 		r.addFilter(f);
@@ -262,6 +285,9 @@ public class Main_window extends JFrame implements ActionListener {
 			//System.out.println("final :"+r.getResult());
 	}
 	
+	/**
+	 * Show result.
+	 */
 	public void showResult(){
 		r.setResult();
 		String result = r.result;
@@ -280,16 +306,5 @@ public class Main_window extends JFrame implements ActionListener {
 		System.out.println(result); //print the result
 		//enlever les boutons et le remplacer 
 	}
-
-
-
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	//	public static void main(String[] args) {
-	//		Main_window fen = new Main_window();
-	//	}
 
 }
