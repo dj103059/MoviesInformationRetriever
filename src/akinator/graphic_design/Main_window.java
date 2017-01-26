@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //Components
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -74,13 +75,13 @@ public class Main_window extends JFrame implements ActionListener {
 
 	/** The initialisation. */
 	public Initialisation initialisation= new Initialisation(); //Load the file and the ontology 
-	
+
 	/** The t. */
 	public Translator t =  new Translator();//instanciate a new Translator to construct the questions
-	
+
 	/** The f. */
 	public Filter f = new Filter(); //instanciate a new filter to construct the filter of the query
-	
+
 	/** The r. */
 	public Request r  = new Request(); //instanciate a translator to create the question in a natural language
 
@@ -99,17 +100,19 @@ public class Main_window extends JFrame implements ActionListener {
 
 	/** The question JLabel. */
 	protected JLabel question = new JLabel();
-	
+
 	/** The text pane to display the result (film name and summary). */
 	protected JTextArea textPane = new JTextArea("Hello Master!", 21, 33);
-		
+
+	protected JLabel image;
+ 
 	/** The pan JPanel to put our components. */
 	//On create a JPanel
 	private JPanel pan = new JPanel();
-	
+
 	/** The window width. */
 	protected int window_width; //width of the window
-	
+
 	/** The window height. */
 	protected int window_height; //height of the window
 
@@ -122,15 +125,17 @@ public class Main_window extends JFrame implements ActionListener {
 	 * Instantiates a new Main_window.
 	 */
 	public Main_window(){
+
+		image = new JLabel(new ImageIcon( "images/pellicule2.jpg"));
 		
 		window_width=this.getWidth(); //initialize the attribute window_width with the width of the window
-	    window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
+		window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
 
-	    //add StoredComponent to the list. This list will define what type of questions we will ask to the user. 
+		//add StoredComponent to the list. This list will define what type of questions we will ask to the user. 
 		listStoredcomponent.add(new StoredComponent("hasActor", "Orlando_Bloom", ""));
 		listStoredcomponent.add(new StoredComponent("isTypeOf", "Pirate", ""));
 		listStoredcomponent.add(new StoredComponent("wasReleasedIn", "2002", "rdfs"));
-		
+
 
 		/***Set the window***/
 		//Define a title to the window
@@ -148,7 +153,7 @@ public class Main_window extends JFrame implements ActionListener {
 
 		//add the JPanel pan to the window
 		this.getContentPane().add(pan);
-        
+
 		//Centering the components in the window
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -159,6 +164,14 @@ public class Main_window extends JFrame implements ActionListener {
 		//////////////////////////////////////////////////////////////////////
 		//Formatting content of the window
 
+		//Creating a Container with Horizontal Management
+		Box b0 = Box.createHorizontalBox();
+		b0.add(image); //add the JLabel which will contain the question ask to the user in the JPanel
+
+		Box b02 = Box.createHorizontalBox();
+		b02.add(new JLabel("<html><br><br></html>"));//add new line between the question and the buttons in the JPanel
+
+		
 		//Creating a Container with Horizontal Management
 		Box b1 = Box.createHorizontalBox();
 		b1.add(question); //add the JLabel which will contain the question ask to the user in the JPanel
@@ -178,6 +191,8 @@ public class Main_window extends JFrame implements ActionListener {
 		//Creating a Container with Vertical Management
 		Box b4 = Box.createVerticalBox();
 		//add the three precedents Box (the question, the new lines and the buttons)
+		b4.add(b0);
+		b4.add(b02);
 		b4.add(b1);
 		b4.add(b2);
 		b4.add(b3);
@@ -185,7 +200,7 @@ public class Main_window extends JFrame implements ActionListener {
 		//add all these components to the JPanel
 		pan.add(b4);
 
-		
+
 		//We put all the listeners so that each component can listen to the interactions.
 		yes.addActionListener((ActionListener) this);
 		no.addActionListener((ActionListener) this);
@@ -195,8 +210,8 @@ public class Main_window extends JFrame implements ActionListener {
 	}
 
 	/*****GETTERS AND SETTERS*****/
-	 
-	 
+
+
 	/**
 	 * @return true, if is reponse
 	 */
@@ -214,10 +229,10 @@ public class Main_window extends JFrame implements ActionListener {
 		this.reponse = reponse;
 	}
 
-	
-	
+
+
 	/*****METHODS*****/
-	 
+
 	//We implement the actionPerformed method to define the behavior of the buttons.
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
@@ -229,18 +244,18 @@ public class Main_window extends JFrame implements ActionListener {
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
 			reponse=true; //set the response of the user to yes
-			
+
 		}
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
 			reponse=false; //set the response of the user to no
-			
+
 		}
 
 		if(e.getSource()==noanswer){//We implement the action of the button noanswer
 			System.out.println("User press: I don't know");
-			
+
 
 		}
 		this.MainEngine(reponse);
@@ -256,7 +271,7 @@ public class Main_window extends JFrame implements ActionListener {
 		this.question.setText(newQuestion); 
 		return newQuestion;
 	}
-	
+
 	/**
 	 * Translate and show the question in the window.
 	 */
@@ -265,7 +280,7 @@ public class Main_window extends JFrame implements ActionListener {
 		System.out.println(question);
 		this.setQuestion(question);
 	}
-	
+
 	/**
 	 * Main engine. If we find one film, we show the result. Else return NONE and do translateAndShow
 	 *
@@ -282,9 +297,9 @@ public class Main_window extends JFrame implements ActionListener {
 		else{
 			this.showResult();
 		}
-			//System.out.println("final :"+r.getResult());
+		//System.out.println("final :"+r.getResult());
 	}
-	
+
 	/**
 	 * Show result.
 	 */
@@ -302,7 +317,7 @@ public class Main_window extends JFrame implements ActionListener {
 		pan.setBackground(Color.BLUE);//Set the background color of the pan
 		pan.validate();// Validate our new JPanel
 		pan.repaint(); //redraw our new JPanel
-		
+
 		System.out.println(result); //print the result
 		//enlever les boutons et le remplacer 
 	}
