@@ -126,7 +126,7 @@ public class Main_window extends JFrame implements ActionListener {
 	 */
 	public Main_window(){
 
-		image = new JLabel(new ImageIcon( "images/pellicule2.jpg"));
+		image = new JLabel(new ImageIcon( "images/pellicule4.png"));
 		
 		window_width=this.getWidth(); //initialize the attribute window_width with the width of the window
 		window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
@@ -141,7 +141,7 @@ public class Main_window extends JFrame implements ActionListener {
 		//Define a title to the window
 		this.setTitle("MovieRetriever");
 		//Define the size of the window : 400 pixels width and 400 pixels height
-		this.setSize(400, 400);
+		this.setSize(400, 430);
 		//We now ask our window to position itself at the center.
 		this.setLocationRelativeTo(null);
 		//Complete the process when clicking on the red cross
