@@ -126,7 +126,7 @@ public class Main_window extends JFrame implements ActionListener {
 	 */
 	public Main_window(){
 
-		image = new JLabel(new ImageIcon( "images/pellicule4.png"));
+		image = new JLabel(new ImageIcon( "images/pellicule1.png"));
 		
 		window_width=this.getWidth(); //initialize the attribute window_width with the width of the window
 		window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
