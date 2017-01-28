@@ -1,14 +1,18 @@
 package dataLoader.Main.ontologie;
 
+import akinator.init.Initialisation;
 import dataLoader.Main.ontologie.team.Actor;
 import dataLoader.Main.ontologie.team.Producer;
 import dataLoader.Main.ontologie.team.Scriptwriter;
+import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.util.FileManager;
 //import sun.plugin.perf.PluginRollup;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -18,6 +22,7 @@ import static org.apache.jena.query.QueryFactory.create;
  * Created by titanium on 19/01/2017.
  */
 public class Movie {
+
     public static String request = "prefix mo:  <http://data.linkedmdb.org/resource/movie/>" +
             "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
             "SELECT DISTINCT ?uri ?label  ?date  ?duration    ?country WHERE"+
@@ -86,8 +91,12 @@ public class Movie {
             Literal duration = binding.getLiteral("duration");
             Literal country = binding.getLiteral("country");
             Resource uri = (Resource) binding.get("uri");
-            movietemp =  new Movie(uri.getURI(),label.getString(),date.getString(),duration.getFloat(),country.getString());
-            movies.add(movietemp);
+            String temp = label.toString().replace("{{unicode|!}}{{unicode|!}}","").replace("/","");
+            if(!Objects.equals(temp, "×\u0099×\u0095×¡×\u0099 ×\u0095×\u0092'×\u0090×\u0092×¨") && !Objects.equals(temp, "[[Japanese language|Japanese]]")){
+                movietemp =  new Movie(uri.getURI(),temp,date.getString(),duration.getFloat(),country.getString());
+                movies.add(movietemp);
+            }
+
 
         }
         return movies;
@@ -127,6 +136,116 @@ public class Movie {
 
     public void addListOfActors(ArrayList<Actor> listofactors){
         this.actors = listofactors;
+    }
+
+
+    public static void fillOntologie(ArrayList<Movie> movies,ArrayList<Type> types,ArrayList<Actor> actors,ArrayList<Characters> characters,ArrayList<Producer> producers,ArrayList<Scriptwriter> writers){
+        Model m = ModelFactory.createDefaultModel();
+        final String inputFile  = "/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie.owl";
+
+        InputStream test = FileManager.get().open(inputFile);
+        m.read(test, "RDF/XML");
+
+
+
+        for (Type type:types
+                ) {
+            type.addTypeToOntologie(m);
+        }
+
+        for (Actor actor:actors
+                ) {
+            actor.addActorToOntologie(m);
+        }
+
+        for (Characters characters1:characters
+                ) {
+            characters1.addCharacterToOntologie(m);
+        }
+
+        for (Producer producer:producers
+                ) {
+            producer.addProducerToOntologie(m);
+        }
+
+        for (Scriptwriter scriptwriter:writers
+                ) {
+            scriptwriter.addWriterToOntologie(m);
+        }
+
+        for (Movie movie:movies
+                ) {
+            movie.addMovieToOntologie(m);
+        }
+
+
+        try {
+            m.write(new FileOutputStream("/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie1.owl"), "RDF/XML");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void addMovieToOntologie(Model m){
+        String prefixemo="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#";
+        String prefixerdfs="http://www.w3.org/2000/01/rdf-schema#";
+        String prefixerdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
+        Resource resourceMovie = m.createResource(prefixemo+this.label);
+        //type
+
+        Property type = m.createProperty(prefixerdf+"type");
+        resourceMovie.addProperty(type,prefixemo+"Movie");
+        //add title
+        Property label = m.createProperty(prefixerdfs+"label");
+        resourceMovie.addProperty(label,this.label);
+        //date
+        Property wasReleasedIn = m.createProperty(prefixemo+"wasReleasedIn");
+        resourceMovie.addProperty(wasReleasedIn,this.date,XSDDatatype.XSDstring);
+        //duration
+        Property duration = m.createProperty(prefixemo+"Duration");
+        resourceMovie.addProperty(duration,this.duration+" min",XSDDatatype.XSDstring);
+        //country
+        Property country = m.createProperty(prefixemo+"OrginalCountry");
+        resourceMovie.addProperty(country,this.country,XSDDatatype.XSDstring);
+
+        try{
+            //type
+            for (Type movietype : this.types ) {
+                Property temptype = m.createProperty(prefixemo+"isTypeOf");
+                resourceMovie.addProperty(temptype,prefixemo+movietype.name);
+            }
+
+            //producer
+            for (Producer movieproducer : this.producers ) {
+                Property tempproducer = m.createProperty(prefixemo+"wasProductby");
+                resourceMovie.addProperty(tempproducer,prefixemo+movieproducer.name);
+            }
+
+            //scriptwriter
+            for (Scriptwriter moviewriter : this.writers ) {
+                Property tempwriter = m.createProperty(prefixemo+"hasScriptWriter");
+                resourceMovie.addProperty(tempwriter,prefixemo+moviewriter.name);
+
+            }
+
+            //Actor
+            for (Actor movieActor : this.actors ) {
+                Property tempactor = m.createProperty(prefixemo+"hasActor");
+                resourceMovie.addProperty(tempactor,prefixemo+movieActor.name);
+            }
+
+            //character
+            for (Characters moviecharacter : this.characters ) {
+                Property tempcharac = m.createProperty(prefixemo+"Characters");
+                resourceMovie.addProperty(tempcharac,prefixemo+moviecharacter.name);
+            }
+
+        }catch (Exception e){
+
+        }
+
     }
     /**
         getter and setter

@@ -2,6 +2,7 @@ package dataLoader.Main.ontologie.team;
 
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Model;
 import java.util.ArrayList;
@@ -14,6 +15,21 @@ import static org.apache.jena.query.QueryFactory.create;
  */
 public class Actor {
     public String uri ;
+
+    public static String requestforinstance = "prefix mo:  <http://data.linkedmdb.org/resource/movie/>" +
+            "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
+            "SELECT DISTINCT  ?name WHERE" +
+            " { ?uri  mo:producer ?uriProducer. " +
+            "?uri a mo:film. "+
+            "?uri mo:initial_release_date ?date."+
+            "?uri mo:runtime ?duration."+
+            "?uri mo:country ?countrytemp."+
+            "?countrytemp rdfs:label ?country." +
+            "?uri mo:genre ?genre." +
+            "?uri mo:writer ?uriWriter." +
+            "?uri mo:actor ?uriactor." +
+            "?uriactor rdfs:label ?name." +
+            " } ";
     public static String requestpart1 = "prefix mo:  <http://data.linkedmdb.org/resource/movie/>" +
             "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
             "SELECT DISTINCT  ?name WHERE"+
@@ -31,6 +47,11 @@ public class Actor {
         this.name = label;
     }
 
+    public Actor(String label){
+        this.name = label;
+    }
+
+
     /**
      * construct list of actor
      * @param q
@@ -38,7 +59,7 @@ public class Actor {
      * @param r
      * @return list of actor for each film
      */
-    public static ArrayList<Actor> constructListOfActor(String urimovie, Query q, QueryExecution qr, ResultSet r, Model m){
+    public static ArrayList<Actor> constructListOfActorForMovie(String urimovie, Query q, QueryExecution qr, ResultSet r, Model m){
         String finalRequest = requestpart1 + urimovie + requestpart2;
         ArrayList<Actor> actors = new ArrayList<>();
         q = create(finalRequest);
@@ -47,9 +68,52 @@ public class Actor {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            actors.add(new Actor(urimovie,name.getString()));
+            actors.add(new Actor(urimovie,name.getString().replace("(Actor)","")));
         }
         return actors;
+    }
+
+
+
+    public static ArrayList<Actor> constructListOfActor(Query q, QueryExecution qr, ResultSet r, Model m) {
+        String finalRequest = requestforinstance;
+        ArrayList<Actor> actors = new ArrayList<>();
+        q = create(finalRequest);
+        qr = QueryExecutionFactory.create(q, m);
+        r = qr.execSelect();
+        while (r.hasNext()) {
+            QuerySolution binding = r.nextSolution();
+            Literal name = binding.getLiteral("name");
+            actors.add(new Actor(name.getString().replace("(Actor)","")));
+        }
+        return actors;
+    }
+
+    // ajoute la liste d'instance de type dans l'ontologie
+    public void addActorToOntologie(Model m) {
+        String prefixemo = "http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#";
+        String prefixerdfs = "http://www.w3.org/2000/01/rdf-schema#";
+        String prefixerdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
+        try {
+            Resource resourceActor = m.createResource(prefixemo + this.name);
+            //type
+            Property type = m.createProperty(prefixerdf + "type");
+            resourceActor.addProperty(type, prefixemo + "Actor");
+            //add title
+            Property label = m.createProperty(prefixerdfs + "label");
+            resourceActor.addProperty(label, this.name);
+
+        } catch (Exception e) {
+
+        }
+
+        /*try {
+            m.write(new FileOutputStream("/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie1.owl"), "RDF/XML");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
     }
 
 
