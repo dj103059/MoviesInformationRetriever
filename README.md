@@ -13,13 +13,14 @@ This is a project for semantic web.
 We will create an akinator for movies.
 
 Specifications :
- - Our database is RDF files and the structures is OWL files (we will create our own knowledge base)
- - We will use SPARQL request with Corese.
+ - Our database is RDF files and the structures is OWL files 
+ - we will use the dump of data from linked database movie.
+ - We will use SPARQL request with Jena.
  - progamatic language : Java.
  - for symplify the test, we only ask yes/no questions.
  - It will be in english.
  
- If we have enought time, we will implement the option "Add" who will feed our database (so with SPARQL , we will add some informations in the RDF files)
+We will try to have an intelligent questions generator.
  
 ------------------------------------------------------
 
