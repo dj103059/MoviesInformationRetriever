@@ -19,7 +19,7 @@ public class Request {
 
 	/******ATTRIBUTES******/
 
-    private String prefixeMovie = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
+    private final String prefixeMovie = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
     		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
     private String mainQuery = "Select distinct ?label ?comment  where { \n"+"?uri rdfs:label ?label.\n" +
             "  ?uri rdfs:comment ?comment.\n"+"}";
