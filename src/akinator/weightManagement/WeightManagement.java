@@ -20,14 +20,15 @@ public class WeightManagement {
 	private final String prefixeMovie = "http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#";
 
 	private final String prefix = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
-			+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
+			+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+			+ "prefix owl: <http://www.w3.org/2002/07/owl#> ";
 
 	private String property;
 
 	private String label_masterBanch;
 
 	private String weight_masterBanch;
-	
+
 	private ArrayList<String> Property_Label_Weight_Triplet = new ArrayList<String>();
 
 	private String value;
@@ -46,7 +47,7 @@ public class WeightManagement {
 		this.weight_masterBanch = "";
 		//add the triplet to the list
 		addTriplet_MasterBranch(this.property, this.label_masterBanch, this.weight_masterBanch);
-		
+
 		this.value ="";
 		this.label_leaf = "";
 		this.weight_leaf = "";
@@ -61,7 +62,7 @@ public class WeightManagement {
 		this.weight_masterBanch = poids_masterBanch;
 		//add the triplet to the list
 		addTriplet_MasterBranch(this.property, this.label_masterBanch, this.weight_masterBanch);
-		
+
 		this.value ="";
 		this.label_leaf = "";
 		this.weight_leaf = "";
@@ -81,11 +82,11 @@ public class WeightManagement {
 	}
 
 	/*****GETTERS AND SETTERS*****/
-	
+
 	public String getPrefix() {
 		return prefix;
 	}
-	
+
 	public String getPrefixeMovie() {
 		return prefixeMovie;
 	}
@@ -156,6 +157,10 @@ public class WeightManagement {
 
 	/*****METHODS*****/
 
+
+	/***MasterBranch***/
+
+	//add triplet property, label and weight for the masterBranch
 	private void addTriplet_MasterBranch (String property, String label_masterBanch, String weight_masterBanch){
 		//add the triplet to the list
 		this.Property_Label_Weight_Triplet.add(property);
@@ -163,13 +168,8 @@ public class WeightManagement {
 		this.Property_Label_Weight_Triplet.add(weight_masterBanch);
 	}
 
-	private void addTriplet_leaf (String value, String label_leaf, String weight_leaf){
-		//add the triplet to the list
-		this.Value_Label_Weight_Triplet.add(value);
-		this.Value_Label_Weight_Triplet.add(label_leaf);
-		this.Value_Label_Weight_Triplet.add(weight_leaf);
-	}
 
+	//Set the property, the label and the weight for the masterBranch. Set also these three result in the array Property_Label_Weight_Triplet
 	private void MasterBranch_MaxWeight(){
 		final String querySring = this.prefix+"Select distinct ?uri_property ?label ?poids where {?uri_property rdfs:label ?label. ?uri_property rdfs:isDefinedBy ?poids . } order by desc (?poids) LIMIT 1";
 		//System.out.print(queryString);
@@ -200,8 +200,57 @@ public class WeightManagement {
 
 	}
 
+
+
+	//return the triplet (property, label, weight) for the masterBranch
+	public ArrayList<String> getMasterBranch_MaxWeightTriplet(){
+		MasterBranch_MaxWeight();
+		return this.Property_Label_Weight_Triplet;
+	}
+
+
+	//return the property of the masterBranch
+	public String getMasterBranch_MaxWeight_Property(){
+		MasterBranch_MaxWeight(); 
+		StringBuffer foundProperty = new StringBuffer(this.property);
+		try{
+			foundProperty = foundProperty.replace(0, prefixeMovie.length(), "");//remove the prefix to get only the property
+		}
+		catch(StringIndexOutOfBoundsException e){
+			System.out.print("StringIndexOutOfBoundsException Error. Cause: "+e.getCause()+" Message: "+e.getMessage());
+			e.getStackTrace();
+		}
+
+		return property = foundProperty.toString();
+
+	}
+
+	//return the label of the masterBranch
+	public String getMasterBranch_MaxWeight_Label(){
+		MasterBranch_MaxWeight(); 
+		return this.label_masterBanch;
+	}
+
+
+	//return the weight of the masterBranch
+	public String getMasterBranch_MaxWeight_Weight(){
+		MasterBranch_MaxWeight(); 
+		return this.weight_masterBanch;
+	}
+
+	/***Leaves***/
+
+	//add triplet property, label and weight for the Leaf
+	private void addTriplet_leaf (String value, String label_leaf, String weight_leaf){
+		//add the triplet to the list
+		this.Value_Label_Weight_Triplet.add(value);
+		this.Value_Label_Weight_Triplet.add(label_leaf);
+		this.Value_Label_Weight_Triplet.add(weight_leaf);
+	}
+
+	//Set the value, the label and the weight for the Leaf. Set also these three result in the array Value_Label_Weight_Triplet. Need of the label of the masterBranch to know which leaf we must query.
 	private void leaf_MaxWeight(String Label_MasterBranch){
-		final String querySring = this.prefix+"Select distinct ?uri_value ?main_branch ?label ?poids where {?uri_value owl:versionInfo ?main_branch. ?uri_value owl:versionInfo "+Label_MasterBranch+". ?uri_value rdfs:label ?label ?uri_value rdfs:seeAlso ?poids . }order by desc (?poids) LIMIT 1";
+		final String querySring = this.prefix+"Select distinct ?uri_value ?main_branch ?label ?poids where {?uri_value owl:versionInfo ?main_branch. ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label ?label. ?uri_value rdfs:seeAlso ?poids . }order by desc (?poids) LIMIT 1";
 		//System.out.print(queryString);
 		Query query = QueryFactory.create(querySring);
 		//System.out.println(this.mainQuery);
@@ -230,31 +279,13 @@ public class WeightManagement {
 
 	}
 
-	public ArrayList<String> getMasterBranch_MaxWeightTriplet(){
-		MasterBranch_MaxWeight();
-		return this.Property_Label_Weight_Triplet;
-	}
-	
+	//return the triplet (value, label, weight) for the leaf. Need to know the label of the masterBranch to know which leaf we must query
 	public ArrayList<String> getLeaf_MaxWeightTriplet(String Label_MasterBranch){
 		leaf_MaxWeight(Label_MasterBranch);
 		return this.Value_Label_Weight_Triplet;
 	}
 
-	public String getMasterBranch_MaxWeight_Property(){
-		MasterBranch_MaxWeight(); 
-		StringBuffer foundProperty = new StringBuffer(this.property);
-		try{
-			foundProperty = foundProperty.replace(0, prefixeMovie.length(), "");//remove the prefix to get only the property
-		}
-		catch(StringIndexOutOfBoundsException e){
-			System.out.print("StringIndexOutOfBoundsException Error. Cause: "+e.getCause()+" Message: "+e.getMessage());
-			e.getStackTrace();
-		}
-
-		return property = foundProperty.toString();
-
-	}
-	
+	//return the value of the leaf. Need to know the label of the masterBranch to know the which leaf we must query.
 	public String getLeaf_MaxWeight_Value(String Label_MasterBranch){
 		leaf_MaxWeight(Label_MasterBranch); 
 		StringBuffer foundValue = new StringBuffer(this.value);
@@ -270,14 +301,16 @@ public class WeightManagement {
 
 	}
 
-	public String getMasterBranch_MaxWeight_Label(){
-		MasterBranch_MaxWeight(); 
-		return this.label_masterBanch;
+	//return the label of the leaf. Need to know the label of the masterBranch to know the which leaf we must query.
+	public String getLeaf_MaxWeight_Label(String Label_MasterBranch){
+		leaf_MaxWeight(Label_MasterBranch); 
+		return this.label_leaf;
 	}
 
-	public String getMasterBranch_MaxWeight_Weight(){
-		MasterBranch_MaxWeight(); 
-		return this.weight_masterBanch;
+	//return the weight of the leaf. Need to know the label of the masterBranch to know the which leaf we must query.
+	public String getLeaf_MaxWeight_Weight(String Label_MasterBranch){
+		leaf_MaxWeight(Label_MasterBranch); 
+		return this.weight_leaf;
 	}
 
 
