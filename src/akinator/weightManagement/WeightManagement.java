@@ -254,6 +254,21 @@ public class WeightManagement {
 		return property = foundProperty.toString();
 
 	}
+	
+	public String getLeaf_MaxWeight_Value(String Label_MasterBranch){
+		leaf_MaxWeight(Label_MasterBranch); 
+		StringBuffer foundValue = new StringBuffer(this.value);
+		try{
+			foundValue = foundValue.replace(0, prefixeMovie.length(), "");//remove the prefix to get only the property
+		}
+		catch(StringIndexOutOfBoundsException e){
+			System.out.print("StringIndexOutOfBoundsException Error. Cause: "+e.getCause()+" Message: "+e.getMessage());
+			e.getStackTrace();
+		}
+
+		return value = foundValue.toString();
+
+	}
 
 	public String getMasterBranch_MaxWeight_Label(){
 		MasterBranch_MaxWeight(); 
