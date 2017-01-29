@@ -1,6 +1,7 @@
 package akinator;
 
 import akinator.graphic_design.Main_window;
+import akinator.weightManagement.WeightManagement;
 
 public class Main {
 	public static void main(String[] args) {
@@ -10,5 +11,10 @@ public class Main {
 		
 		 window.translateAndShow(); //translate and show the first question in the window
 		
+		 WeightManagement wm = new WeightManagement();
+		 System.out.println(wm.getMasterBranch_MaxWeight_Property());
+		 System.out.println(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println(wm.getMasterBranch_MaxWeight_Weight());
+			
 	}
 }
