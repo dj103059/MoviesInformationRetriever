@@ -314,7 +314,7 @@ public class WeightManagement {
 	}
 	
 	/***********************************/
-	//method to get the property and the value with the greater weight to construct StoredComponenet
+	//method to get the property and the value with the greater weight to construct StoredComponent
 	public ArrayList<String> getPropertyAndValue (){
 		ArrayList<String> propertyAndValue = new ArrayList<String>();
 		WeightManagement wm = new WeightManagement();
