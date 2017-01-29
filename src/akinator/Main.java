@@ -1,5 +1,7 @@
 package akinator;
 
+import java.util.ArrayList;
+
 import akinator.graphic_design.Main_window;
 import akinator.weightManagement.WeightManagement;
 
@@ -23,6 +25,13 @@ public class Main {
 		 System.out.println("the value is: "+wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label()));
 		 System.out.println("the label is: "+wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));
 		 System.out.println("the weight is: "+wm.getLeaf_MaxWeight_Weight(wm.getMasterBranch_MaxWeight_Label()));
+		 
+		 System.out.println("**********************Test to get the right property and value********************");
+		 ArrayList<String> propertyAndValue = new ArrayList<String>();
+		 propertyAndValue = wm.getPropertyAndValue();
+		 System.out.println("the property is: "+propertyAndValue.get(0));
+		 System.out.println("the value is: "+propertyAndValue.get(1));
+		 
 			
 	}
 }

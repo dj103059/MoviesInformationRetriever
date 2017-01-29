@@ -312,6 +312,20 @@ public class WeightManagement {
 		leaf_MaxWeight(Label_MasterBranch); 
 		return this.weight_leaf;
 	}
+	
+	/***********************************/
+	//method to get the property and the value with the greater weight to construct StoredComponenet
+	public ArrayList<String> getPropertyAndValue (){
+		ArrayList<String> propertyAndValue = new ArrayList<String>();
+		WeightManagement wm = new WeightManagement();
+		String property = wm.getMasterBranch_MaxWeight_Property();
+		String value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());
+		propertyAndValue.add(property);
+		propertyAndValue.add(value);
+		
+		return propertyAndValue;
+		
+	}
 
 
 }
