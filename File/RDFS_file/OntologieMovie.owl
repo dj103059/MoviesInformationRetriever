@@ -730,6 +730,8 @@
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Captain_Jack_Sparrow"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"/>
         <rdfs:label>Johnny Depp</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#int">95</rdfs:seeAlso>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has as actor</owl:versionInfo>
     </owl:NamedIndividual>
     
 

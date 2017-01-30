@@ -10,6 +10,11 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.update.UpdateAction;
+import org.apache.jena.update.UpdateExecutionFactory;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateProcessor;
+import org.apache.jena.update.UpdateRequest;
 
 import akinator.init.Initialisation;
 
@@ -238,6 +243,23 @@ public class WeightManagement {
 		return this.weight_masterBanch;
 	}
 
+	//Set the property, the label and the weight for the masterBranch. Set also these three result in the array Property_Label_Weight_Triplet
+	public void MasterBranch_SetNullWeight(String Label_MasterBranch){
+		final String querySring = this.prefix+" delete{ ?uri_property rdfs:isDefinedBy ?poids. } INSERT { ?uri_property rdfs:isDefinedBy 0 } where { ?uri_property rdfs:label \""+Label_MasterBranch+"\". ?uri_property rdfs:isDefinedBy ?poids. }";
+		//System.out.print(queryString);
+		UpdateRequest query = UpdateFactory.create(querySring);
+		//System.out.println(this.mainQuery);
+		UpdateAction.execute( query, Initialisation.getModel() );
+		//UpdateProcessor qexec = UpdateExecutionFactory.create(query, Initialisation.getModel());
+//		try{
+//			qexec.execSelect();
+//		}
+//		finally{
+//			qexec.close();
+//		}
+
+	}
+
 	/***Leaves***/
 
 	//add triplet property, label and weight for the Leaf
@@ -312,7 +334,7 @@ public class WeightManagement {
 		leaf_MaxWeight(Label_MasterBranch); 
 		return this.weight_leaf;
 	}
-	
+
 	/***********************************/
 	//method to get the property and the value with the greater weight to construct StoredComponent
 	public ArrayList<String> getPropertyAndValue (){
@@ -322,9 +344,9 @@ public class WeightManagement {
 		String value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());
 		propertyAndValue.add(property);
 		propertyAndValue.add(value);
-		
+
 		return propertyAndValue;
-		
+
 	}
 
 

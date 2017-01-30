@@ -31,7 +31,22 @@ public class Main {
 		 propertyAndValue = wm.getPropertyAndValue();
 		 System.out.println("the property is: "+propertyAndValue.get(0));
 		 System.out.println("the value is: "+propertyAndValue.get(1));
+		 System.out.println("**********************Test to set the weight to null********************");
+		 System.out.println("Set the max weight of the MasterBranch to null");
+		 wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("The new property and value pair are: ");
+		 ArrayList<String> propertyAndValue1 = new ArrayList<String>();
+		 propertyAndValue1 = wm.getPropertyAndValue();
+		 System.out.println("the property is: "+propertyAndValue1.get(0));
+		 System.out.println("the value is: "+propertyAndValue1.get(1));
 		 
+		 System.out.println("Set the max weight of the MasterBranch to null");
+		 wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("The new property and value pair are: ");
+		 ArrayList<String> propertyAndValue11 = new ArrayList<String>();
+		 propertyAndValue11 = wm.getPropertyAndValue();
+		 System.out.println("the property is: "+propertyAndValue11.get(0));
+		 System.out.println("the value is: "+propertyAndValue11.get(1));
 			
 	}
 }
