@@ -643,6 +643,8 @@
         <hasPlay rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Han_Solo"/>
         <hasPlayIn rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Star_Wars:_Episode_IV_–_A_New_Hope"/>
         <rdfs:label>Harrison Ford</rdfs:label>
+        <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#int">97</rdfs:seeAlso>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has as actor</owl:versionInfo>
     </owl:NamedIndividual>
     
 
