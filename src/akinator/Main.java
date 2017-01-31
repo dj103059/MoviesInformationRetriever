@@ -107,6 +107,10 @@ public class Main {
 		System.out.println("the property is: "+propertyAndValue1111111.get(0));
 		System.out.println("the value is: "+propertyAndValue1111111.get(1));
 		System.out.println("the weight of leaf is: "+wm.getLeaf_MaxWeight_Weight(wm.getMasterBranch_MaxWeight_Label()));
+		System.out.println("**********************Test to find the format of a specified MasterBranch********************");
+		System.out.println(wm.getMasterBranch_MaxWeight_Format("is type of"));
+		System.out.println(wm.getMasterBranch_MaxWeight_Format("was released in"));
+
 
 //		ArrayList<String> propertyAndValue = new ArrayList<String>();
 //		propertyAndValue = wm.getPropertyAndValue();
@@ -131,8 +135,5 @@ public class Main {
 //		sc.setFormat("");
 		
 		
-
-
-
 	}
 }

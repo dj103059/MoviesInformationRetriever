@@ -1,6 +1,7 @@
 package akinator.weightManagement;
 
 import java.util.ArrayList;
+import java.util.regex.PatternSyntaxException;
 
 //import
 import org.apache.jena.query.Query;
@@ -41,6 +42,8 @@ public class WeightManagement {
 	private String weight_leaf;
 
 	private ArrayList<String> Value_Label_Weight_Triplet = new ArrayList<String>();
+
+	private String format;
 
 
 	/*****CONSTRUCTORS*****/
@@ -255,8 +258,49 @@ public class WeightManagement {
 		UpdateRequest query = UpdateFactory.create(querySring);
 		//System.out.println(this.mainQuery);
 		UpdateAction.execute( query, Initialisation.getModel() );
-		
+
 		//this.weight_masterBanch= Integer.toString(max_weight);
+	}
+
+	//return the format of the masterBranch specified by its label
+	public String getMasterBranch_MaxWeight_Format(String Label_MasterBranch){
+
+		final String querySring = this.prefix+"Select distinct ?uri_property ?label ?format  where {?uri_property rdfs:range ?format.?uri_property rdfs:label \""+Label_MasterBranch+"\".}";
+		//System.out.print(queryString);
+		Query query = QueryFactory.create(querySring);
+		//System.out.println(this.mainQuery);
+		QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
+		try{
+			org.apache.jena.query.ResultSet results = qexec.execSelect();
+			//System.out.println(results.getRowNumber());
+			Resource format = null ;
+			while (results.hasNext()){
+				QuerySolution soln = results.nextSolution();
+				format = soln.getResource("format");
+			}
+
+			String foundFormat = new String(format.toString());
+			String[] foundUrl = null;
+			try{
+				foundUrl = foundFormat.split("#");//remove the prefix to get only the property
+			}
+			catch(PatternSyntaxException e){
+				System.out.print("PatternSyntaxException Error. Cause: "+e.getCause()+" Message: "+e.getMessage());
+				e.getStackTrace();
+			}
+			if(foundUrl[0].equals(prefixeMovie.substring(0, prefixeMovie.length()-1))){
+				this.format="";
+			}
+			else{
+				this.format="rdfs";
+			}
+		}
+		finally{
+			qexec.close();
+		}
+
+		return this.format;
+
 	}
 
 	/***Leaves***/
@@ -331,26 +375,26 @@ public class WeightManagement {
 		leaf_MaxWeight(Label_MasterBranch); 
 		return this.weight_leaf;
 	}
-	
-	//Set the weight for the masterBranch specified by its label to 0.
-		public void Leaf_SetNullWeight(String Label_MasterBranch, String Label_Leaf){
-			final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
-			UpdateRequest query = UpdateFactory.create(querySring);
-			UpdateAction.execute( query, Initialisation.getModel() );
-		}
 
-		//Decrement the weight for the masterBranch specified by its label.
-		public void Leaf_DecrementWeight(String Label_MasterBranch, String Label_Leaf){
-			int max_weight = Integer.parseInt(getLeaf_MaxWeight_Weight(Label_MasterBranch));
-			max_weight--;
-			final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } INSERT { ?uri_value rdfs:seeAlso "+max_weight+" } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
-			//System.out.print(queryString);
-			UpdateRequest query = UpdateFactory.create(querySring);
-			//System.out.println(this.mainQuery);
-			UpdateAction.execute( query, Initialisation.getModel() );
-			
-			//this.weight_masterBanch= Integer.toString(max_weight);
-		}
+	//Set the weight for the masterBranch specified by its label to 0.
+	public void Leaf_SetNullWeight(String Label_MasterBranch, String Label_Leaf){
+		final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
+		UpdateRequest query = UpdateFactory.create(querySring);
+		UpdateAction.execute( query, Initialisation.getModel() );
+	}
+
+	//Decrement the weight for the masterBranch specified by its label.
+	public void Leaf_DecrementWeight(String Label_MasterBranch, String Label_Leaf){
+		int max_weight = Integer.parseInt(getLeaf_MaxWeight_Weight(Label_MasterBranch));
+		max_weight--;
+		final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } INSERT { ?uri_value rdfs:seeAlso "+max_weight+" } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
+		//System.out.print(queryString);
+		UpdateRequest query = UpdateFactory.create(querySring);
+		//System.out.println(this.mainQuery);
+		UpdateAction.execute( query, Initialisation.getModel() );
+
+		//this.weight_masterBanch= Integer.toString(max_weight);
+	}
 
 	/***********************************/
 	//method to get the property and the value with the greater weight to construct StoredComponent

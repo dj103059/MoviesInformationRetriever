@@ -20,6 +20,16 @@ public class StoredComponent {
         this.value = val;
         this.format = format;
     }
+    
+    public StoredComponent(){
+    }
+    
+    public void constructComponent(String prop, String val, String format){ 
+        this.property = prop;
+        this.value = val;
+        this.format = format;
+    	
+    }
 
     /******GETTERS AND SETTERS******/
 

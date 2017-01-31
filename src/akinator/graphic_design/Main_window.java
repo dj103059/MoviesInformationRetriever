@@ -72,6 +72,8 @@ public class Main_window extends JFrame implements ActionListener {
 
 	/** The list storedcomponent. */
 	java.util.ArrayList <StoredComponent> listStoredcomponent = new java.util.ArrayList <StoredComponent>();
+	
+	//private StoredComponent s = new StoredComponent(prop, val, format)
 
 	/** The initialisation. */
 	public Initialisation initialisation= new Initialisation(); //Load the file and the ontology 
