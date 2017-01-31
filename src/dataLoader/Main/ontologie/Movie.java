@@ -51,7 +51,7 @@ public class Movie {
     public ArrayList<Characters> characters = new ArrayList<Characters>();
     public String label ;
     public String date ;
-    public float duration;
+    public String duration;
 
     /**
      * Constructor
@@ -61,8 +61,8 @@ public class Movie {
     public Movie(String uri,String label , String date, float duration, String country){
         this.uri = uri;
         this.label = label;
-        this.date = date;
-        this.duration = duration;
+        this.date = date + " OK";
+        this.duration = ((int)duration/60)+"h"+( (((int)duration%60)>9)?  (int)duration%60 : "0"+(int)duration%60 ) + " OK";
         this.country = country;
     }
 
@@ -205,7 +205,7 @@ public class Movie {
         resourceMovie.addProperty(wasReleasedIn,this.date,XSDDatatype.XSDstring);
         //duration
         Property duration = m.createProperty(prefixemo+"Duration");
-        resourceMovie.addProperty(duration,this.duration+" min",XSDDatatype.XSDstring);
+        resourceMovie.addProperty(duration,this.duration,XSDDatatype.XSDstring);
         //country
         Property country = m.createProperty(prefixemo+"OrginalCountry");
         resourceMovie.addProperty(country,this.country,XSDDatatype.XSDstring);
@@ -263,7 +263,7 @@ public class Movie {
         String firstsentence = "\n"+" uri : "+this.uri+ " \n "+
                 "label : "+ this.label + " \n"+
                 "date : "+ this.date+ " \n"+
-                "duration : " + this.duration + " min \n "+
+                "duration : " + this.duration +" \n "+
                 "country : "+ this.country +" \n" +
                 "genre : ";
 

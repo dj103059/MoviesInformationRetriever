@@ -7,6 +7,7 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static org.apache.jena.query.QueryFactory.create;
 
@@ -91,6 +92,7 @@ public class Characters {
 
     // ajoute la liste d'instance de type dans l'ontologie
     public void addCharacterToOntologie(Model m) {
+        int randomNum = ThreadLocalRandom.current().nextInt(0,101);
         String prefixemo = "http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#";
         String prefixerdfs = "http://www.w3.org/2000/01/rdf-schema#";
         String prefixerdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
@@ -103,6 +105,9 @@ public class Characters {
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceCharacter.addProperty(label, this.name);
+            //add weight
+            Property weight = m.createProperty(prefixerdfs + "seeAlso");
+            resourceCharacter.addProperty(weight, ""+randomNum);
 
         } catch (Exception e) {
 

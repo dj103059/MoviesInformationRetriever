@@ -36,7 +36,9 @@ public class MainLoader {
         org.apache.log4j.BasicConfigurator.configure(new NullAppender());
 
 
-        // initialisation /////////////////
+
+
+                // initialisation /////////////////
         Model model;
         final String inputFileName  = "File/RDFS_file/linkedmdb-latest-dump.nt";
 
@@ -48,16 +50,9 @@ public class MainLoader {
 
         // lire le fichier owl
         model.read(in,null, "N-TRIPLE");
-        System.out.println("fini load dataset");
+
+
         //  FIN initialisation /////////////////
-
-        //load of our ontologie
-        Model m = ModelFactory.createDefaultModel();
-        final String inputFile  = "/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie.owl";
-
-        InputStream test = FileManager.get().open(inputFile);
-        m.read(test, "RDF/XML");
-        System.out.println("fini load ontologie");
 
         ///////////////////////////////////
 
@@ -94,7 +89,7 @@ public class MainLoader {
         System.out.println("add all  to ontologie");
         Movie.fillOntologie(movies,types,actors,characterses,producers,scriptwriters);
 
-        System.out.println("fini");
+        System.out.println("ends");
 
     }
 
@@ -119,7 +114,6 @@ public class MainLoader {
             movie.addListOfProducer(Producer.constructListOfProducerForMovie(movie.getUri(),query,queryexec,resultSet,model));
             movie.addListOfActors(Actor.constructListOfActorForMovie(movie.getUri(),query,queryexec,resultSet,model));
             movie.addListOfCharacters(Characters.constructListOfCharactersForMovie(movie.getUri(),query,queryexec,resultSet,model));
-           // System.out.println(movie.toString());
         }
         return  movies;
     }
