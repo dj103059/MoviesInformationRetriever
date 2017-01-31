@@ -11,9 +11,7 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.update.UpdateAction;
-import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
-import org.apache.jena.update.UpdateProcessor;
 import org.apache.jena.update.UpdateRequest;
 
 import akinator.init.Initialisation;
@@ -185,9 +183,7 @@ public class WeightManagement {
 			org.apache.jena.query.ResultSet results = qexec.execSelect();
 			//System.out.println(results.getRowNumber());
 
-			int compteur = 0;
 			while (results.hasNext()){
-				compteur++;
 				QuerySolution soln = results.nextSolution();
 				Resource property = soln.getResource("uri_property");
 				Literal label_masterBanch = soln.getLiteral("label");
@@ -284,9 +280,7 @@ public class WeightManagement {
 			org.apache.jena.query.ResultSet results = qexec.execSelect();
 			//System.out.println(results.getRowNumber());
 
-			int compteur = 0;
 			while (results.hasNext()){
-				compteur++;
 				QuerySolution soln = results.nextSolution();
 				Resource value = soln.getResource("uri_value");
 				Literal label_leaf = soln.getLiteral("label");
