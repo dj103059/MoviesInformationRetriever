@@ -73,6 +73,9 @@ public class Request {
         	if(compteur>1){
         		return "NONE";
         	}
+        	else if (compteur==0){
+        		return "NF";
+        	}
         }
         finally{
         	qexec.close();

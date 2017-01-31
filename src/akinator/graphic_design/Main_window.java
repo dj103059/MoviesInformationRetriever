@@ -294,8 +294,12 @@ public class Main_window extends JFrame implements ActionListener {
 		if(r.getResult()=="NONE"){
 			this.translateAndShow();
 		}
+		else if(r.getResult()== "NF"){
+			r.result = "Sorry, your film cannot be found.";
+			this.showResult(false);
+		}
 		else{
-			this.showResult();
+			this.showResult(true);
 		}
 		//System.out.println("final :"+r.getResult());
 	}
@@ -303,12 +307,16 @@ public class Main_window extends JFrame implements ActionListener {
 	/**
 	 * Show result.
 	 */
-	public void showResult(){
+	public void showResult(boolean needReplace){
+		if(needReplace){
 		r.setResult();
+		}
 		String result = r.result;
+		if(needReplace){
 		result = result.replace("<br/>","\n\nSummary: \n\n");
 		result = result.replace("<html>","");
 		result = result.replace("</html>","");
+		}
 		pan.removeAll(); //remove all the components in the JPanel
 		pan.setBounds(window_width,window_height, 400, 400); //Set the dimension of the JPanel
 		textPane.setLineWrap(true); //Sets the line-wrapping policy of the text area. If set to true the lines will be wrapped if they are too long to fit within the allocated width.
