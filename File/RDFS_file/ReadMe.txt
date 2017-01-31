@@ -30,7 +30,6 @@ je fais la fuction des listes par uri
 même chose pour les acteurs et les perfomances
 
 list to do :
-- gerer le cas ou on a 0 retour de requête.
 - récuperer le format lors de la recherche de propriété et de value
 - mettre en place le systeme de poids avec "je ne sais pas" :
         - mettre des poids sur toute les branches et toutes les valeurs.(100 pour les propriétés, random pour les values)
