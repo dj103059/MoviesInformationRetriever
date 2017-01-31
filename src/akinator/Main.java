@@ -33,6 +33,7 @@ public class Main {
 		propertyAndValue = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue.get(0));
 		System.out.println("the value is: "+propertyAndValue.get(1));
+		System.out.println("the format is: "+propertyAndValue.get(2));
 		System.out.println("**********************Test to set the weight of the MasterBranch to null********************");
 		System.out.println("Set the max weight of the MasterBranch to null");
 		wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
@@ -52,6 +53,7 @@ public class Main {
 		propertyAndValue1 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue1.get(0));
 		System.out.println("the value is: "+propertyAndValue1.get(1));
+		System.out.println("the format is: "+propertyAndValue1.get(2));
 		System.out.println("**********************Decrement the weight of the masterBranch********************");
 		System.out.println("Decrementation of the weight of the masterBranch...");
 		wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label());
@@ -60,6 +62,7 @@ public class Main {
 		propertyAndValue11 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue11.get(0));
 		System.out.println("the value is: "+propertyAndValue11.get(1));
+		System.out.println("the format is: "+propertyAndValue11.get(2));
 		System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
 		System.out.println("**********************Decrement the weight of the masterBranch********************");
 		System.out.println("Decrementation of the weight of the masterBranch...");
@@ -69,6 +72,7 @@ public class Main {
 		propertyAndValue111 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue111.get(0));
 		System.out.println("the value is: "+propertyAndValue111.get(1));
+		System.out.println("the format is: "+propertyAndValue111.get(2));
 		System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
 		System.out.println("**********************Decrement the weight of the masterBranch********************");
 		System.out.println("Decrementation of the weight of the masterBranch...");
@@ -78,6 +82,7 @@ public class Main {
 		propertyAndValue1111 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue1111.get(0));
 		System.out.println("the value is: "+propertyAndValue1111.get(1));
+		System.out.println("the format is: "+propertyAndValue1111.get(2));
 		System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
 
 		System.out.println("**********************Test to set the leaf to null********************");
@@ -89,6 +94,7 @@ public class Main {
 		propertyAndValue11111 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue11111.get(0));
 		System.out.println("the value is: "+propertyAndValue11111.get(1));
+		System.out.println("the format is: "+propertyAndValue11111.get(2));
 		System.out.println("**********************Test to decrement the weight of the leaf********************");
 		System.out.println("Decrementation of the weight of the leaf...");
 		wm.Leaf_DecrementWeight(wm.getMasterBranch_MaxWeight_Label(), wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));
@@ -97,6 +103,7 @@ public class Main {
 		propertyAndValue111111 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue111111.get(0));
 		System.out.println("the value is: "+propertyAndValue111111.get(1));
+		System.out.println("the format is: "+propertyAndValue111111.get(2));
 		System.out.println("the weight of leaf is: "+wm.getLeaf_MaxWeight_Weight(wm.getMasterBranch_MaxWeight_Label()));
 		System.out.println("**********************Test to decrement the weight of the leaf********************");
 		System.out.println("Decrementation of the weight of the leaf...");
@@ -106,6 +113,7 @@ public class Main {
 		propertyAndValue1111111 = wm.getPropertyValueFormat();
 		System.out.println("the property is: "+propertyAndValue1111111.get(0));
 		System.out.println("the value is: "+propertyAndValue1111111.get(1));
+		System.out.println("the format is: "+propertyAndValue1111111.get(2));
 		System.out.println("the weight of leaf is: "+wm.getLeaf_MaxWeight_Weight(wm.getMasterBranch_MaxWeight_Label()));
 		System.out.println("**********************Test to find the format of a specified MasterBranch********************");
 		System.out.println(wm.getMasterBranch_MaxWeight_Format("is type of"));
