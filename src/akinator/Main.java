@@ -3,6 +3,7 @@ package akinator;
 import java.util.ArrayList;
 
 import akinator.graphic_design.Main_window;
+import akinator.init.StoredComponent;
 import akinator.weightManagement.WeightManagement;
 
 public class Main {
@@ -107,7 +108,29 @@ public class Main {
 		System.out.println("the value is: "+propertyAndValue1111111.get(1));
 		System.out.println("the weight of leaf is: "+wm.getLeaf_MaxWeight_Weight(wm.getMasterBranch_MaxWeight_Label()));
 
-
+//		ArrayList<String> propertyAndValue = new ArrayList<String>();
+//		propertyAndValue = wm.getPropertyAndValue();
+//		System.out.println("the property is: "+propertyAndValue.get(0));
+//		System.out.println("the value is: "+propertyAndValue.get(1));
+//		StoredComponent sc = new StoredComponent(propertyAndValue.get(0), propertyAndValue.get(1), "");
+//		wm.Leaf_SetNullWeight(wm.getMasterBranch_MaxWeight_Label(), wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));//set the weight of the leaf to 0.
+//		ArrayList<String> propertyAndValue1 = new ArrayList<String>();
+//		propertyAndValue1 = wm.getPropertyAndValue();
+//		System.out.println("the property is: "+propertyAndValue1.get(0));
+//		System.out.println("the value is: "+propertyAndValue1.get(1));
+//		sc.setProperty(propertyAndValue1.get(0));
+//		sc.setValue(propertyAndValue1.get(1));
+//		sc.setFormat("");
+//		wm.Leaf_SetNullWeight(wm.getMasterBranch_MaxWeight_Label(), wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));//set the weight of the leaf to 0.
+//		ArrayList<String> propertyAndValue11 = new ArrayList<String>();
+//		propertyAndValue11 = wm.getPropertyAndValue();
+//		System.out.println("the property is: "+propertyAndValue11.get(0));
+//		System.out.println("the value is: "+propertyAndValue11.get(1));
+//		sc.setProperty(propertyAndValue11.get(0));
+//		sc.setValue(propertyAndValue11.get(1));
+//		sc.setFormat("");
+		
+		
 
 
 
