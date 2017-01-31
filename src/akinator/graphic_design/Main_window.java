@@ -314,7 +314,7 @@ public class Main_window extends JFrame implements ActionListener {
 		textPane.setLineWrap(true); //Sets the line-wrapping policy of the text area. If set to true the lines will be wrapped if they are too long to fit within the allocated width.
 		textPane.setText(result);//Set the text of the textPane with the comments of the film
 		pan.add(new JScrollPane(textPane)); //add the scroll
-		pan.setBackground(Color.BLUE);//Set the background color of the pan
+		//pan.setBackground(Color.BLUE);//Set the background color of the pan
 		pan.validate();// Validate our new JPanel
 		pan.repaint(); //redraw our new JPanel
 
