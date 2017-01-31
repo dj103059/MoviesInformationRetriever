@@ -315,15 +315,28 @@ public class WeightManagement {
 
 	//Set the value, the label and the weight for the Leaf. Set also these three result in the array Value_Label_Weight_Triplet. Need of the label of the masterBranch to know which leaf we must query.
 	private void leaf_MaxWeight(String Label_MasterBranch){
+		final String countQuerySring = this.prefix+"Select distinct (count(?uri_value) as ?count) where {?uri_value owl:versionInfo ?main_branch. ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label ?label. ?uri_value rdfs:seeAlso ?poids . }order by desc (?poids) LIMIT 1";
 		final String querySring = this.prefix+"Select distinct ?uri_value ?main_branch ?label ?poids where {?uri_value owl:versionInfo ?main_branch. ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label ?label. ?uri_value rdfs:seeAlso ?poids . }order by desc (?poids) LIMIT 1";
 		//System.out.print(queryString);
-		Query query = QueryFactory.create(querySring);
+		Query query = QueryFactory.create(countQuerySring);
 		//System.out.println(this.mainQuery);
 		QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
+		org.apache.jena.query.ResultSet results = qexec.execSelect();
+		int compteur = 0;
+		while (results.hasNext()){
+			QuerySolution soln = results.nextSolution();
+		    compteur  = soln.getLiteral("count").getInt();
+		}
+		if(compteur==1){
+			this.MasterBranch_SetNullWeight(this.label_masterBanch);
+		}
+		////////////////////////////////////////
+		query = QueryFactory.create(querySring);
+		qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
 		try{
-			org.apache.jena.query.ResultSet results = qexec.execSelect();
+			 results = qexec.execSelect();
 			//System.out.println(results.getRowNumber());
-
+			
 			while (results.hasNext()){
 				QuerySolution soln = results.nextSolution();
 				Resource value = soln.getResource("uri_value");
@@ -332,9 +345,11 @@ public class WeightManagement {
 				this.value = value.toString();
 				this.label_leaf = label_leaf.getString();
 				this.weight_leaf = weight_leaf.getString();
+				
 				//add the triplet to the list
 				addTriplet_leaf(this.value, this.label_leaf, this.weight_leaf);
 			}
+			
 		}
 		finally{
 			qexec.close();

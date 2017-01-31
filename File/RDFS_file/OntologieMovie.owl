@@ -855,8 +855,8 @@
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Academy_Awards"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#British_Academy_Film_Awards"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1999</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1999 OK</wasReleasedIn>
         <rdfs:comment>Thomas A. Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. Morpheus awakens Neo to the real world, a ravaged wasteland where most of humanity have been captured by a race of machines that live off of the humans&apos; body heat and electrochemical energy and who imprison their minds within an artificial reality known as the Matrix. As a rebel against the machines, Neo must return to the Matrix and confront the agents: super-powerful computer programs devoted to snuffing out Neo and the entire human rebellion.</rdfs:comment>
         <rdfs:label>Matrix</rdfs:label>
     </owl:NamedIndividual>
@@ -1154,8 +1154,8 @@
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#SF"/>
         <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Bryan_Singer"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Hugo_Award"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2000</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2000 OK</wasReleasedIn>
         <rdfs:comment>A band of unique power-possessing mutants live in a world where their kind is hated and persecuted by humans. Under the guidance of their leader, Professor Charles Xavier, the X-Men strive for a world where humans and mutants can peacefully co-exist. The superheroes must also combat those radical mutants with intentions of exterminating human the race.</rdfs:comment>
         <rdfs:label>X-Men</rdfs:label>
     </owl:NamedIndividual>
@@ -1189,8 +1189,8 @@
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Fantasy"/>
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Pirate"/>
         <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Jerry_Bruckheimer"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2003</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2003 OK</wasReleasedIn>
         <rdfs:comment>This swash-buckling tale follows the quest of Captain Jack Sparrow, a savvy pirate, and Will Turner, a resourceful blacksmith, as they search for Elizabeth Swann. Elizabeth, the daughter of the governor and the love of Will&apos;s life, has been kidnapped by the feared Captain Barbossa. Little do they know, but the fierce and clever Barbossa has been cursed. He, along with his large crew, are under an ancient curse, doomed for eternity to neither live, nor die. That is, unless a blood sacrifice is made.</rdfs:comment>
         <rdfs:label>Pirates of the Caribbean: The Curse of the Black Pearl</rdfs:label>
     </owl:NamedIndividual>
@@ -1219,8 +1219,8 @@
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#space_opera"/>
         <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#George_Lucas"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Oscar"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1977</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1977 OK</wasReleasedIn>
         <rdfs:comment>The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.</rdfs:comment>
         <rdfs:label>Star Wars: Episode IV – A New Hope</rdfs:label>
     </owl:NamedIndividual>
@@ -1246,8 +1246,8 @@
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Fantasy"/>
         <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Peter_Jackson"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Saturn_Awards"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2002</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2002 OK</wasReleasedIn>
         <rdfs:comment>Sauron&apos;s forces increase. His allies grow. The Ringwraiths return in an even more frightening form. Saruman&apos;s army of Uruk-hai is ready to launch an assault against Aragorn and the people of Rohan. Yet, the Fellowship is broken and Boromir is dead. For the little hope that is left, Frodo and Sam march on into Mordor, unprotected. A number of new allies join with Aragorn, Gimli, Legolas, Pippin and Merry. And they must defend Rohan and attack Isengard. Yet, while all this is going on, Sauron&apos;s troops mass toward Gondor, for the War of the Ring is about to begin.</rdfs:comment>
         <rdfs:label>The lord of the rings : The two towers</rdfs:label>
     </owl:NamedIndividual>
@@ -1273,8 +1273,8 @@
         <isTypeOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Fantasy"/>
         <wasProductby rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Peter_Jackson"/>
         <wasRewardwith rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Oscar"/>
-        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3h</Duration>
-        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2001</wasReleasedIn>
+        <Duration rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3h OK</Duration>
+        <wasReleasedIn rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2001 OK</wasReleasedIn>
         <rdfs:comment>A young Hobbit named Frodo (Guard) is thrown on an amazing adventure, when he is appointed the job of destroying the one ring which was created by the dark lord Sauron. He is assigned with warriors including Gandalf (Squire), Aragorn (Hurt) and Boromir (Cox). It&apos;s not going to be an easy journey for the Fellowship of the Ring, on the ultimate quest to rid Middle-Earth of all evil.</rdfs:comment>
         <rdfs:label>The lord of the rings : The fellowship of the rings</rdfs:label>
     </owl:NamedIndividual>

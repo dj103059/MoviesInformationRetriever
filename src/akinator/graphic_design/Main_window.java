@@ -11,6 +11,8 @@ import java.awt.GridBagLayout;
 //Actions
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 //Components
 import javax.swing.Box;
 import javax.swing.ImageIcon;
@@ -26,6 +28,7 @@ import akinator.init.StoredComponent;
 import akinator.sparqlEngine.filter.Filter;
 import akinator.sparqlEngine.request.Request;
 import akinator.sparqlEngine.translator.Translator;
+import akinator.weightManagement.WeightManagement;
 
 
 
@@ -70,10 +73,9 @@ public class Main_window extends JFrame implements ActionListener {
 	/** The compteur. */
 	public int compteur = 0;
 
-	/** The list storedcomponent. */
-	java.util.ArrayList <StoredComponent> listStoredcomponent = new java.util.ArrayList <StoredComponent>();
+	private StoredComponent s = new StoredComponent();
 	
-	//private StoredComponent s = new StoredComponent(prop, val, format)
+	private WeightManagement wm = new WeightManagement();
 
 	/** The initialisation. */
 	public Initialisation initialisation= new Initialisation(); //Load the file and the ontology 
@@ -133,11 +135,11 @@ public class Main_window extends JFrame implements ActionListener {
 		window_width=this.getWidth(); //initialize the attribute window_width with the width of the window
 		window_height=this.getHeight(); //initialize the attribute window_height with the height of the window
 
-		//add StoredComponent to the list. This list will define what type of questions we will ask to the user. 
-		listStoredcomponent.add(new StoredComponent("hasActor", "Orlando_Bloom", ""));
-		listStoredcomponent.add(new StoredComponent("isTypeOf", "Pirate", ""));
-		listStoredcomponent.add(new StoredComponent("wasReleasedIn", "2002", "rdfs"));
-
+		ArrayList<String> propertyValueFormat = new ArrayList<String>();
+		propertyValueFormat = wm.getPropertyValueFormat();
+		s.constructComponent(propertyValueFormat.get(0), propertyValueFormat.get(1), propertyValueFormat.get(2));
+		wm.Leaf_SetNullWeight(wm.getMasterBranch_MaxWeight_Label(), wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));//set the weight of the leaf to 0.
+		
 
 		/***Set the window***/
 		//Define a title to the window
@@ -278,7 +280,7 @@ public class Main_window extends JFrame implements ActionListener {
 	 * Translate and show the question in the window.
 	 */
 	public void translateAndShow(){
-		String question = t.translate(listStoredcomponent.get(compteur)); // use the storedcomponent to create the question in a natural language (PB: nullPointeurException, is the problem due to the issue in the load method ?)
+		String question = t.translate(this.s); // use the storedcomponent to create the question in a natural language (PB: nullPointeurException, is the problem due to the issue in the load method ?)
 		System.out.println(question);
 		this.setQuestion(question);
 	}
@@ -289,9 +291,13 @@ public class Main_window extends JFrame implements ActionListener {
 	 * @param reponse the reponse
 	 */
 	public void MainEngine(boolean reponse){
-		f.constructFilter(listStoredcomponent.get(this.compteur), reponse);
+		f.constructFilter(this.s, reponse);
 		r.addFilter(f);
 		//System.out.println(r.getResult());
+		ArrayList<String> propertyValueFormat = new ArrayList<String>();
+		propertyValueFormat = wm.getPropertyValueFormat();
+		s.constructComponent(propertyValueFormat.get(0), propertyValueFormat.get(1), propertyValueFormat.get(2));
+		wm.Leaf_SetNullWeight(wm.getMasterBranch_MaxWeight_Label(), wm.getLeaf_MaxWeight_Label(wm.getMasterBranch_MaxWeight_Label()));//set the weight of the leaf to 0.
 		this.compteur++;
 		if(r.getResult()=="NONE"){
 			this.translateAndShow();
