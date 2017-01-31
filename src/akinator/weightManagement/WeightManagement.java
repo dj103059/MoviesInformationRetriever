@@ -334,7 +334,7 @@ public class WeightManagement {
 	
 	//Set the weight for the masterBranch specified by its label to 0.
 		public void Leaf_SetNullWeight(String Label_MasterBranch, String Label_Leaf){
-			final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } INSERT { ?uri_value rdfs:seeAlso 0 } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
+			final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
 			UpdateRequest query = UpdateFactory.create(querySring);
 			UpdateAction.execute( query, Initialisation.getModel() );
 		}

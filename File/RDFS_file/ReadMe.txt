@@ -28,3 +28,13 @@ je factorise la liste de genre .
 je fais la fuction des listes par uri
 
 même chose pour les acteurs et les perfomances
+
+list to do :
+- gerer le cas ou on a 0 retour de requête.
+- récuperer le format lors de la recherche de propriété et de value
+- mettre en place le systeme de poids avec "je ne sais pas" :
+        - mettre des poids sur toute les branches et toutes les valeurs.(100 pour les propriétés, random pour les values)
+        - faire une méthode qui set le poid d'une propriété s'il n' y a plus de value pour cette propriété
+        - trouver un bon setting pour la décrémentation des poids sur les propriétés
+
+=> ajouter les données du loader et enjoy.
