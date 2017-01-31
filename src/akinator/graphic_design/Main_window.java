@@ -1,7 +1,7 @@
 //current package
 package akinator.graphic_design;
 
-import java.awt.Color;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 

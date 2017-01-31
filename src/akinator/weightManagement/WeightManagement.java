@@ -397,14 +397,16 @@ public class WeightManagement {
 	}
 
 	/***********************************/
-	//method to get the property and the value with the greater weight to construct StoredComponent
-	public ArrayList<String> getPropertyAndValue (){
+	//method to get the property, the value and the format with the greater weight to construct StoredComponent
+	public ArrayList<String> getPropertyValueFormat (){
 		ArrayList<String> propertyAndValue = new ArrayList<String>();
 		WeightManagement wm = new WeightManagement();
 		String property = wm.getMasterBranch_MaxWeight_Property();
+		String format = wm.getMasterBranch_MaxWeight_Format(wm.getMasterBranch_MaxWeight_Label());
 		String value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());
 		propertyAndValue.add(property);
 		propertyAndValue.add(value);
+		propertyAndValue.add(format);
 
 		return propertyAndValue;
 
