@@ -34,19 +34,50 @@ public class Main {
 		 System.out.println("**********************Test to set the weight to null********************");
 		 System.out.println("Set the max weight of the MasterBranch to null");
 		 wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("**********************Test to get the right property and value********************");
 		 System.out.println("The new property and value pair are: ");
 		 ArrayList<String> propertyAndValue1 = new ArrayList<String>();
 		 propertyAndValue1 = wm.getPropertyAndValue();
 		 System.out.println("the property is: "+propertyAndValue1.get(0));
 		 System.out.println("the value is: "+propertyAndValue1.get(1));
-		 
-		 System.out.println("Set the max weight of the MasterBranch to null");
-		 wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("**********************Decrement the weight of the masterBranch********************");
+		 System.out.println("Decrementation of the weight of the masterBranch...");
+		 wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label());
 		 System.out.println("The new property and value pair are: ");
 		 ArrayList<String> propertyAndValue11 = new ArrayList<String>();
 		 propertyAndValue11 = wm.getPropertyAndValue();
 		 System.out.println("the property is: "+propertyAndValue11.get(0));
 		 System.out.println("the value is: "+propertyAndValue11.get(1));
+		 System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
+		 System.out.println("**********************Decrement the weight of the masterBranch********************");
+		 System.out.println("Decrementation of the weight of the masterBranch...");
+		 wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("The new property and value pair are: ");
+		 ArrayList<String> propertyAndValue111 = new ArrayList<String>();
+		 propertyAndValue111 = wm.getPropertyAndValue();
+		 System.out.println("the property is: "+propertyAndValue111.get(0));
+		 System.out.println("the value is: "+propertyAndValue111.get(1));
+		 System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
+		 System.out.println("**********************Decrement the weight of the masterBranch********************");
+		 System.out.println("Decrementation of the weight of the masterBranch...");
+		 wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label());
+		 System.out.println("The new property and value pair are: ");
+		 ArrayList<String> propertyAndValue1111 = new ArrayList<String>();
+		 propertyAndValue1111 = wm.getPropertyAndValue();
+		 System.out.println("the property is: "+propertyAndValue1111.get(0));
+		 System.out.println("the value is: "+propertyAndValue1111.get(1));
+		 System.out.println("the weight of MasterBranch is: "+wm.getMasterBranch_MaxWeight_Weight());
+
+//		 System.out.println("**********************Test to set the weight to null********************");
+//		 System.out.println("Set the max weight of the MasterBranch to null");
+//		 System.out.println("**********************Test to get the right property and value********************");
+//
+//		 wm.MasterBranch_SetNullWeight(wm.getMasterBranch_MaxWeight_Label());
+//		 System.out.println("The new property and value pair are: ");
+//		 ArrayList<String> propertyAndValue11 = new ArrayList<String>();
+//		 propertyAndValue11 = wm.getPropertyAndValue();
+//		 System.out.println("the property is: "+propertyAndValue11.get(0));
+//		 System.out.println("the value is: "+propertyAndValue11.get(1));
 			
 	}
 }

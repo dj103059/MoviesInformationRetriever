@@ -243,21 +243,24 @@ public class WeightManagement {
 		return this.weight_masterBanch;
 	}
 
-	//Set the property, the label and the weight for the masterBranch. Set also these three result in the array Property_Label_Weight_Triplet
+	//Set the weight for the masterBranch specified by its label to 0.
 	public void MasterBranch_SetNullWeight(String Label_MasterBranch){
 		final String querySring = this.prefix+" delete{ ?uri_property rdfs:isDefinedBy ?poids. } INSERT { ?uri_property rdfs:isDefinedBy 0 } where { ?uri_property rdfs:label \""+Label_MasterBranch+"\". ?uri_property rdfs:isDefinedBy ?poids. }";
+		UpdateRequest query = UpdateFactory.create(querySring);
+		UpdateAction.execute( query, Initialisation.getModel() );
+	}
+
+	//Decrement the weight for the masterBranch specified by its label.
+	public void MasterBranch_DecrementWeight(String Label_MasterBranch){
+		int max_weight = Integer.parseInt(getMasterBranch_MaxWeight_Weight());
+		max_weight--;
+		final String querySring = this.prefix+" delete{ ?uri_property rdfs:isDefinedBy ?poids. } INSERT { ?uri_property rdfs:isDefinedBy "+max_weight+" } where { ?uri_property rdfs:label \""+Label_MasterBranch+"\". ?uri_property rdfs:isDefinedBy ?poids. }";
 		//System.out.print(queryString);
 		UpdateRequest query = UpdateFactory.create(querySring);
 		//System.out.println(this.mainQuery);
 		UpdateAction.execute( query, Initialisation.getModel() );
-		//UpdateProcessor qexec = UpdateExecutionFactory.create(query, Initialisation.getModel());
-//		try{
-//			qexec.execSelect();
-//		}
-//		finally{
-//			qexec.close();
-//		}
-
+		
+		//this.weight_masterBanch= Integer.toString(max_weight);
 	}
 
 	/***Leaves***/
