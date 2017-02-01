@@ -248,17 +248,19 @@ public class Main_window extends JFrame implements ActionListener {
 		if(e.getSource()==yes){//We implement the action of the button yes
 			System.out.println("User say: yes");
 			reponse=true; //set the response of the user to yes
-
+			//wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label(), 4);
 		}
 
 		if(e.getSource()==no){//We implement the action of the button yes
 			System.out.println("User say: no");
 			reponse=false; //set the response of the user to no
+			//wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label(), 2);
 
 		}
 
 		if(e.getSource()==noanswer){//We implement the action of the button noanswer
 			System.out.println("User press: I don't know");
+			//wm.MasterBranch_DecrementWeight(wm.getMasterBranch_MaxWeight_Label(), 1);
 
 
 		}

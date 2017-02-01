@@ -261,6 +261,19 @@ public class WeightManagement {
 
 		//this.weight_masterBanch= Integer.toString(max_weight);
 	}
+	
+	//Decrement the weight for the masterBranch specified by its label.
+	public void MasterBranch_DecrementWeight(String Label_MasterBranch, int numberToDecrement){
+		int max_weight = Integer.parseInt(getMasterBranch_MaxWeight_Weight());
+		max_weight-=numberToDecrement;
+		final String querySring = this.prefix+" delete{ ?uri_property rdfs:isDefinedBy ?poids. } INSERT { ?uri_property rdfs:isDefinedBy "+max_weight+" } where { ?uri_property rdfs:label \""+Label_MasterBranch+"\". ?uri_property rdfs:isDefinedBy ?poids. }";
+		//System.out.print(queryString);
+		UpdateRequest query = UpdateFactory.create(querySring);
+		//System.out.println(this.mainQuery);
+		UpdateAction.execute( query, Initialisation.getModel() );
+
+		//this.weight_masterBanch= Integer.toString(max_weight);
+	}
 
 	//return the format of the masterBranch specified by its label
 	public String getMasterBranch_MaxWeight_Format(String Label_MasterBranch){
@@ -402,6 +415,19 @@ public class WeightManagement {
 	public void Leaf_DecrementWeight(String Label_MasterBranch, String Label_Leaf){
 		int max_weight = Integer.parseInt(getLeaf_MaxWeight_Weight(Label_MasterBranch));
 		max_weight--;
+		final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } INSERT { ?uri_value rdfs:seeAlso "+max_weight+" } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
+		//System.out.print(queryString);
+		UpdateRequest query = UpdateFactory.create(querySring);
+		//System.out.println(this.mainQuery);
+		UpdateAction.execute( query, Initialisation.getModel() );
+
+		//this.weight_masterBanch= Integer.toString(max_weight);
+	}
+	
+	//Decrement the weight for the masterBranch specified by its label.
+	public void Leaf_DecrementWeight(String Label_MasterBranch, String Label_Leaf, int numberToDecrement){
+		int max_weight = Integer.parseInt(getLeaf_MaxWeight_Weight(Label_MasterBranch));
+		max_weight-=numberToDecrement;
 		final String querySring = this.prefix+" DELETE {?uri_value rdfs:seeAlso ?poids } INSERT { ?uri_value rdfs:seeAlso "+max_weight+" } where { ?uri_value owl:versionInfo \""+Label_MasterBranch+"\". ?uri_value rdfs:label \""+Label_Leaf+"\". ?uri_value rdfs:seeAlso ?poids . }";
 		//System.out.print(queryString);
 		UpdateRequest query = UpdateFactory.create(querySring);
