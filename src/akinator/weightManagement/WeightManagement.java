@@ -438,13 +438,55 @@ public class WeightManagement {
 	}
 
 	/***********************************/
+	
+	//Set the property, the label and the weight for the masterBranch. Set also these three result in the array Property_Label_Weight_Triplet
+		private String getDataValue(String Label_MasterBranch){
+			final String querySring = this.prefix+"Select distinct ?value  where {?uri_value rdfs:label \""+Label_MasterBranch+"\".?uri_value rdfs:label ?label.?uri_value rdfs:isDefinedBy ?poids.?uri mo:wasReleasedIn ?value.filter regex (str(?value), \"OK\")}order by desc (?poids) LIMIT 1";
+			//System.out.print(queryString);
+			String getDataValue = new String();
+			Query query = QueryFactory.create(querySring);
+			//System.out.println(this.mainQuery);
+			QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
+			try{
+				org.apache.jena.query.ResultSet results = qexec.execSelect();
+				//System.out.println(results.getRowNumber());
+
+				while (results.hasNext()){
+					QuerySolution soln = results.nextSolution();
+					Literal valueData = soln.getLiteral("value");
+					getDataValue = valueData.toString();
+				}
+				
+			}
+			finally{
+				qexec.close();
+			}
+			return getDataValue;
+
+		}
+		
+		private String deleteOK(String getDataValue){
+			return getDataValue.substring(0, getDataValue.length()-2);
+		}
+		
+		private String getDataValueWithoutOK(String Label_MasterBranch){
+			return deleteOK(getDataValue(Label_MasterBranch));
+		}
+	
+	
 	//method to get the property, the value and the format with the greater weight to construct StoredComponent
 	public ArrayList<String> getPropertyValueFormat (){
 		ArrayList<String> propertyAndValue = new ArrayList<String>();
 		WeightManagement wm = new WeightManagement();
 		String property = wm.getMasterBranch_MaxWeight_Property();
 		String format = wm.getMasterBranch_MaxWeight_Format(wm.getMasterBranch_MaxWeight_Label());
-		String value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());
+		String value = new String();
+		if(format.equals("rdfs")){
+			value = getDataValueWithoutOK(wm.getMasterBranch_MaxWeight_Label());
+		}
+		else{
+		value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());
+		}
 		propertyAndValue.add(property);
 		propertyAndValue.add(value);
 		propertyAndValue.add(format);
