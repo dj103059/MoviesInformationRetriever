@@ -472,6 +472,16 @@ public class WeightManagement {
 		private String getDataValueWithoutOK(String Label_MasterBranch){
 			return deleteOK(getDataValue(Label_MasterBranch));
 		}
+		
+		//Decrement the weight for the masterBranch specified by its label.
+		private void DeleteDataValue(String ValueWithoutOK, String valueWithOK){
+			final String querySring = this.prefix+" DELETE { ?uri mo:wasReleasedIn ?value. } INSERT { ?uri mo:wasReleasedIn \""+ValueWithoutOK+" NONE\". } where { ?uri mo:wasReleasedIn \""+valueWithOK+"\". ?uri mo:wasReleasedIn ?value. }";
+			UpdateRequest query = UpdateFactory.create(querySring);
+			//System.out.println(this.mainQuery);
+			UpdateAction.execute( query, Initialisation.getModel() );
+
+			//this.weight_masterBanch= Integer.toString(max_weight);
+		}
 	
 	
 	//method to get the property, the value and the format with the greater weight to construct StoredComponent
@@ -481,8 +491,11 @@ public class WeightManagement {
 		String property = wm.getMasterBranch_MaxWeight_Property();
 		String format = wm.getMasterBranch_MaxWeight_Format(wm.getMasterBranch_MaxWeight_Label());
 		String value = new String();
+		String valueWithOK = new String();
 		if(format.equals("rdfs")){
 			value = getDataValueWithoutOK(wm.getMasterBranch_MaxWeight_Label());
+			valueWithOK = value+"OK";
+			DeleteDataValue(value, valueWithOK);
 		}
 		else{
 		value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());

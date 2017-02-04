@@ -1,10 +1,6 @@
 package akinator;
 
-import java.util.ArrayList;
-
 import akinator.graphic_design.Main_window;
-import akinator.init.StoredComponent;
-import akinator.weightManagement.WeightManagement;
 
 public class Main {
 	public static void main(String[] args) {
