@@ -54,7 +54,7 @@ public class Request {
     	String result = "OK";
         //System.out.print(queryString);
         Query query = QueryFactory.create(this.mainQuery);
-        //System.out.println(this.mainQuery);
+        System.out.println(this.mainQuery);
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{
         	org.apache.jena.query.ResultSet results = qexec.execSelect();
