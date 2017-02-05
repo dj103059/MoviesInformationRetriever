@@ -22,7 +22,13 @@ public class Request {
     private final String prefixeMovie = "prefix mo: <http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#>\n"
     		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
     private String mainQuery = "Select distinct ?label ?comment  where { \n"+"?uri rdfs:label ?label.\n" +
-            "  ?uri rdfs:comment ?comment.\n"+"}";
+            "  OPTIONAL { ?uri rdfs:comment ?comment. } \n"+"}";
+
+
+
+    private String countQuery =  "Select distinct (count(?uri ) as ?count)   where { \n"
+            + "?uri rdfs:label ?label.\n" +
+            "  OPTIONAL { ?uri rdfs:comment ?comment. } \n"+"}";
     public String title;
     public String comment;
     public  String result = "<html>Your film is: ";
@@ -32,6 +38,7 @@ public class Request {
     
     public Request(){
         setMainQuery(prefixeMovie+mainQuery);
+        setCountQuery(prefixeMovie+countQuery);
     }
     
     /******GETTERS AND SETTERS******/
@@ -54,13 +61,27 @@ public class Request {
     	String result = "OK";
         //System.out.print(queryString);
         Query query = QueryFactory.create(this.mainQuery);
-        System.out.println(this.mainQuery);
+        Query querycount  = QueryFactory.create(this.countQuery);
+        System.out.println(this.countQuery);
+        QueryExecution qexecCount = QueryExecutionFactory.create(querycount, Initialisation.getModel());
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{
         	org.apache.jena.query.ResultSet results = qexec.execSelect();
-        	//System.out.println(results.getRowNumber());
-        	
+            //////////////////////////
+            org.apache.jena.query.ResultSet resultsCount = qexecCount.execSelect();
         	int compteur = 0;
+            while (resultsCount.hasNext()){
+                QuerySolution soln = resultsCount.nextSolution();
+                compteur  = soln.getLiteral("count").getInt();
+            }
+            System.out.println("Compteur = "+compteur );
+            if(compteur>1){
+                return "NONE";
+            }
+            else if (compteur==0){
+                return "NF";
+            }
+            /////////////////////////
         	while (results.hasNext()){
         		compteur++;
         		QuerySolution soln = results.nextSolution();
@@ -68,14 +89,8 @@ public class Request {
         		Literal comment = soln.getLiteral("comment");
         		this.title = title.getString();
         		this.comment = comment.getString();
-        		
         	}
-        	if(compteur>1){
-        		return "NONE";
-        	}
-        	else if (compteur==0){
-        		return "NF";
-        	}
+
         }
         finally{
         	qexec.close();
@@ -92,6 +107,7 @@ public class Request {
     public void addFilter(Filter filter){
         removeEndQuery();
         setMainQuery(getMainQuery()+filter.getFilter()+"}");
+        setCountQuery(getCountQuery()+filter.getFilter()+"}");
     }
 
     /**
@@ -99,9 +115,18 @@ public class Request {
      */
     private void removeEndQuery(){
         setMainQuery(getMainQuery().substring(0,getMainQuery().length()-1));
+        setCountQuery(getCountQuery().substring(0,getCountQuery().length()-1));
     }
 
     public void setResult(){
         result = result + " " + title +"<br/>" + comment +"</html>";
+    }
+
+    public String getCountQuery() {
+        return countQuery;
+    }
+
+    public void setCountQuery(String countQuery) {
+        this.countQuery = countQuery;
     }
 }

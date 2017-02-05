@@ -47,7 +47,7 @@ public class Filter {
         String filtervalue = "";
 
         if(storedComponent.getFormat() == "rdfs"){
-            filtervalue = " \"" + storedComponent.getValue() +"OK\"" ;
+            filtervalue = " \"" + storedComponent.getValue() +"NONE\"" ;
         }else{
             filtervalue = " mo:" + storedComponent.getValue() ;
         }
