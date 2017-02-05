@@ -88,7 +88,12 @@ public class Request {
         		Literal title = soln.getLiteral("label");
         		Literal comment = soln.getLiteral("comment");
         		this.title = title.getString().replace("-"," ");
+        		try{
         		this.comment = comment.getString();
+        		}
+        		catch(NullPointerException e){
+        			this.comment = "There is not any summary available for this film.";
+        		}
         	}
 
         }
