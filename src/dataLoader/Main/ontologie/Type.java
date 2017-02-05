@@ -4,10 +4,8 @@ package dataLoader.Main.ontologie;
 import org.apache.jena.base.Sys;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDF;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -67,7 +65,7 @@ public class Type {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            types.add(new Type(urimovie, name.getString().replace("(Film Genre)","")));
+            types.add(new Type(urimovie, name.getString().replace(" (Film Genre)","")));
         }
         return types;
     }
@@ -90,7 +88,7 @@ public class Type {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            types.add(new Type(name.getString().replace("(Film Genre)","")));
+            types.add(new Type(name.getString().replace(" (Film Genre)","")));
         }
         return types;
     }
@@ -106,8 +104,7 @@ public class Type {
         try {
             Resource resourceType = m.createResource(prefixemo + this.name);
             //type
-            Property type = m.createProperty(prefixerdf + "type");
-            resourceType.addProperty(type, prefixemo + "Type");
+            m.add(resourceType, RDF.type, ResourceFactory.createResource(prefixemo + "Type"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceType.addProperty(label, this.name);

@@ -7,14 +7,12 @@ import dataLoader.Main.ontologie.Type;
 import dataLoader.Main.ontologie.team.Actor;
 import dataLoader.Main.ontologie.team.Producer;
 import dataLoader.Main.ontologie.team.Scriptwriter;
+import org.apache.jena.datatypes.RDFDatatype;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
 import org.apache.jena.util.FileManager;
 import org.apache.log4j.varia.NullAppender;
 
@@ -30,9 +28,8 @@ import static org.apache.jena.query.QueryFactory.*;
 public class MainLoader {
 
 
-
-
     public static void main(String[] args) {
+
         org.apache.log4j.BasicConfigurator.configure(new NullAppender());
 
 

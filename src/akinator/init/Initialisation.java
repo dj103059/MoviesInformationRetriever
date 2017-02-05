@@ -40,7 +40,7 @@ public class Initialisation {
      */
     public void loadfile (){
     	
-    	  final String inputFileName  = "File/RDFS_file/OntologieMovie.owl";
+    	  final String inputFileName  = "File/RDFS_file/OntologieMovie1.owl";
 
     	// créer un modèle vide
     	  model = ModelFactory.createDefaultModel();

@@ -1,10 +1,9 @@
 package dataLoader.Main.ontologie.team;
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDF;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
@@ -69,7 +68,7 @@ public class Actor {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            actors.add(new Actor(urimovie,name.getString().replace("(Actor)","")));
+            actors.add(new Actor(urimovie,name.getString().replace(" (Actor)","")));
         }
         return actors;
     }
@@ -85,7 +84,7 @@ public class Actor {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            actors.add(new Actor(name.getString().replace("(Actor)","")));
+            actors.add(new Actor(name.getString().replace(" (Actor)","")));
         }
         return actors;
     }
@@ -100,8 +99,7 @@ public class Actor {
         try {
             Resource resourceActor = m.createResource(prefixemo + this.name);
             //type
-            Property type = m.createProperty(prefixerdf + "type");
-            resourceActor.addProperty(type, prefixemo + "Actor");
+            m.add(resourceActor, RDF.type, ResourceFactory.createResource(prefixemo + "Actor"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceActor.addProperty(label, this.name);

@@ -1,10 +1,8 @@
 package dataLoader.Main.ontologie.team;
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDF;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -102,8 +100,7 @@ public class Producer {
         try {
             Resource resourceProducer = m.createResource(prefixemo + this.name);
             //type
-            Property type = m.createProperty(prefixerdf + "type");
-            resourceProducer.addProperty(type, prefixemo + "Producer");
+            m.add(resourceProducer, RDF.type, ResourceFactory.createResource(prefixemo + "Producer"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceProducer.addProperty(label, this.name);

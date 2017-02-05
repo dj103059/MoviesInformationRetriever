@@ -8,6 +8,7 @@ import org.apache.jena.datatypes.xsd.XSDDatatype;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.util.FileManager;
+import org.semarglproject.vocab.RDF;
 //import sun.plugin.perf.PluginRollup;
 
 import java.io.FileNotFoundException;
@@ -61,9 +62,9 @@ public class Movie {
     public Movie(String uri,String label , String date, float duration, String country){
         this.uri = uri;
         this.label = label;
-        this.date = date + " OK";
+        this.date = date.substring(0,4) + " OK";
         this.duration = ((int)duration/60)+"h"+( (((int)duration%60)>9)?  (int)duration%60 : "0"+(int)duration%60 ) + " OK";
-        this.country = country;
+        this.country = country.replace(" (Country)","");
     }
 
 
@@ -195,51 +196,55 @@ public class Movie {
         Resource resourceMovie = m.createResource(prefixemo+this.label);
         //type
 
-        Property type = m.createProperty(prefixerdf+"type");
-        resourceMovie.addProperty(type,prefixemo+"Movie");
+        //Property type = m.createProperty(prefixerdf+"type");
+        m.add(resourceMovie, org.apache.jena.vocabulary.RDF.type, ResourceFactory.createResource(prefixemo + "Movie"));
         //add title
         Property label = m.createProperty(prefixerdfs+"label");
         resourceMovie.addProperty(label,this.label);
         //date
         Property wasReleasedIn = m.createProperty(prefixemo+"wasReleasedIn");
-        resourceMovie.addProperty(wasReleasedIn,this.date,XSDDatatype.XSDstring);
+        m.addLiteral(resourceMovie,wasReleasedIn,this.date);
+        //m.add(resourceMovie,wasReleasedIn,ResourceFactory.createTypedLiteral(this.date, XSDDatatype.XSDstring));
+        //resourceMovie.addProperty(wasReleasedIn,this.date,XSDDatatype.XSDstring);
         //duration
         Property duration = m.createProperty(prefixemo+"Duration");
-        resourceMovie.addProperty(duration,this.duration,XSDDatatype.XSDstring);
+        m.addLiteral(resourceMovie,duration,this.date);
+        //m.add(resourceMovie,duration,ResourceFactory.createTypedLiteral(this.duration, XSDDatatype.XSDstring));
         //country
         Property country = m.createProperty(prefixemo+"OrginalCountry");
-        resourceMovie.addProperty(country,this.country,XSDDatatype.XSDstring);
+        m.add(resourceMovie, country, ResourceFactory.createResource(prefixemo + this.country));
 
         try{
             //type
             for (Type movietype : this.types ) {
                 Property temptype = m.createProperty(prefixemo+"isTypeOf");
-                resourceMovie.addProperty(temptype,prefixemo+movietype.name);
+                 m.add(resourceMovie, temptype, ResourceFactory.createResource(prefixemo + movietype.name));
             }
 
             //producer
             for (Producer movieproducer : this.producers ) {
+
                 Property tempproducer = m.createProperty(prefixemo+"wasProductby");
-                resourceMovie.addProperty(tempproducer,prefixemo+movieproducer.name);
+                m.add(resourceMovie, tempproducer, ResourceFactory.createResource(prefixemo + movieproducer.name));
             }
 
             //scriptwriter
             for (Scriptwriter moviewriter : this.writers ) {
                 Property tempwriter = m.createProperty(prefixemo+"hasScriptWriter");
-                resourceMovie.addProperty(tempwriter,prefixemo+moviewriter.name);
+                m.add(resourceMovie, tempwriter, ResourceFactory.createResource(prefixemo + moviewriter.name));
 
             }
 
             //Actor
             for (Actor movieActor : this.actors ) {
                 Property tempactor = m.createProperty(prefixemo+"hasActor");
-                resourceMovie.addProperty(tempactor,prefixemo+movieActor.name);
+                m.add(resourceMovie, tempactor, ResourceFactory.createResource(prefixemo + movieActor.name));
             }
 
             //character
             for (Characters moviecharacter : this.characters ) {
                 Property tempcharac = m.createProperty(prefixemo+"Characters");
-                resourceMovie.addProperty(tempcharac,prefixemo+moviecharacter.name);
+                m.add(resourceMovie, tempcharac, ResourceFactory.createResource(prefixemo + moviecharacter.name));
             }
 
         }catch (Exception e){

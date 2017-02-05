@@ -490,15 +490,16 @@ public class WeightManagement {
 		ArrayList<String> propertyAndValue = new ArrayList<String>();
 		WeightManagement wm = new WeightManagement();
 		String property = wm.getMasterBranch_MaxWeight_Property();
+		System.out.println(wm.getMasterBranch_MaxWeight_Label());
 		String format = wm.getMasterBranch_MaxWeight_Format(wm.getMasterBranch_MaxWeight_Label());
 		String value = new String();
 		String valueWithOK = new String();
 		if(format.equals("rdfs")){
 			value = getDataValueWithoutOK(wm.getMasterBranch_MaxWeight_Label());
-			System.out.println(value+"OK");
+			///System.out.println(value+"OK");
 			valueWithOK = value+"OK";
 			DeleteDataValue(value, valueWithOK);
-			System.out.println("DeleteDataValue");
+			//System.out.println("DeleteDataValue");
 		}
 		else{
 		value = wm.getLeaf_MaxWeight_Value(wm.getMasterBranch_MaxWeight_Label());

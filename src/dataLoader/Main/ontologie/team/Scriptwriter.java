@@ -1,10 +1,8 @@
 package dataLoader.Main.ontologie.team;
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDF;
 
 
 import java.util.ArrayList;
@@ -66,7 +64,7 @@ public class Scriptwriter {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            scriptwritertemp =  new Scriptwriter(urimovie,name.getString().replace("(Writer)",""));
+            scriptwritertemp =  new Scriptwriter(urimovie,name.getString().replace(" (Writer)",""));
             scriptwriters.add(scriptwritertemp);
 
         }
@@ -90,7 +88,7 @@ public class Scriptwriter {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            scriptwriters.add(new Scriptwriter(name.getString().replace("(Writer)","")));
+            scriptwriters.add(new Scriptwriter(name.getString().replace(" (Writer)","")));
         }
         return scriptwriters;
     }
@@ -105,8 +103,7 @@ public class Scriptwriter {
         try {
             Resource resourceWriter = m.createResource(prefixemo + this.name);
             //type
-            Property type = m.createProperty(prefixerdf + "type");
-            resourceWriter.addProperty(type, prefixemo + "Scriptwriter");
+            m.add(resourceWriter, RDF.type, ResourceFactory.createResource(prefixemo + "Scriptwriter"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceWriter.addProperty(label, this.name);

@@ -1,10 +1,8 @@
 package dataLoader.Main.ontologie;
 
 import org.apache.jena.query.*;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDF;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -70,7 +68,7 @@ public class Characters {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            characters.add(new Characters(urimovie,name.getString().replace("(Film Character)","")));
+            characters.add(new Characters(urimovie,name.getString().replace(" (Film Character)","")));
         }
         return characters;
     }
@@ -85,7 +83,7 @@ public class Characters {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            characterses.add(new Characters(name.getString().replace("(Film Character)","")));
+            characterses.add(new Characters(name.getString().replace(" (Film Character)","")));
         }
         return characterses;
     }
@@ -100,8 +98,7 @@ public class Characters {
         try {
             Resource resourceCharacter = m.createResource(prefixemo + this.name);
             //type
-            Property type = m.createProperty(prefixerdf + "type");
-            resourceCharacter.addProperty(type, prefixemo + "Character");
+            m.add(resourceCharacter, RDF.type, ResourceFactory.createResource(prefixemo + "Character"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
             resourceCharacter.addProperty(label, this.name);
