@@ -54,7 +54,7 @@ public class Request {
     /******CLASS METHODS******/
 
     /**
-     * execute Querry to get the result
+     * execute Query to get the result
      * @return
      */
     public String getResult(){
@@ -62,7 +62,7 @@ public class Request {
         //System.out.print(queryString);
         Query query = QueryFactory.create(this.mainQuery);
         Query querycount  = QueryFactory.create(this.countQuery);
-        System.out.println(this.countQuery);
+        //System.out.println(this.countQuery);
         QueryExecution qexecCount = QueryExecutionFactory.create(querycount, Initialisation.getModel());
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{
@@ -74,7 +74,7 @@ public class Request {
                 QuerySolution soln = resultsCount.nextSolution();
                 compteur  = soln.getLiteral("count").getInt();
             }
-            System.out.println("Compteur = "+compteur );
+            //System.out.println("Compteur = "+compteur );
             if(compteur>1){
                 return "NONE";
             }
