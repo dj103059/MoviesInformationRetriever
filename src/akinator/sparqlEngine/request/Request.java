@@ -87,7 +87,7 @@ public class Request {
         		QuerySolution soln = results.nextSolution();
         		Literal title = soln.getLiteral("label");
         		Literal comment = soln.getLiteral("comment");
-        		this.title = title.getString();
+        		this.title = title.getString().replace("-"," ");
         		this.comment = comment.getString();
         	}
 

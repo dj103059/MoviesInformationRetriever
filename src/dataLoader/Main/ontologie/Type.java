@@ -65,7 +65,7 @@ public class Type {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            types.add(new Type(urimovie, name.getString().replace(" (Film Genre)","")));
+            types.add(new Type(urimovie, name.getString().replace(" (Film Genre)","").replace("/","-").replace(" ","-").replace("'","")));
         }
         return types;
     }
@@ -88,7 +88,7 @@ public class Type {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            types.add(new Type(name.getString().replace(" (Film Genre)","")));
+            types.add(new Type(name.getString().replace(" (Film Genre)","").replace("/","-").replace(" ","-").replace("'","")));
         }
         return types;
     }
@@ -107,7 +107,7 @@ public class Type {
             m.add(resourceType, RDF.type, ResourceFactory.createResource(prefixemo + "Type"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
-            resourceType.addProperty(label, this.name);
+            resourceType.addProperty(label, this.name.replace("-"," "));
             //add weight
             Property weight = m.createProperty(prefixerdfs + "seeAlso");
             resourceType.addProperty(weight, ""+randomNum);

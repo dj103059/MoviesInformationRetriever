@@ -69,7 +69,7 @@ public class Producer {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            producertemp =  new Producer(movieuri,name.getString().replace("(Producer)",""));
+            producertemp =  new Producer(movieuri,name.getString().replace("(Producer)","").replace(" ","-").replace("'",""));
             producers.add(producertemp);
 
         }
@@ -85,7 +85,7 @@ public class Producer {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            producers.add(new Producer(name.getString().replace("(Producer)","")));
+            producers.add(new Producer(name.getString().replace("(Producer)","").replace(" ","-").replace("'","")));
         }
         return producers;
     }
@@ -103,7 +103,7 @@ public class Producer {
             m.add(resourceProducer, RDF.type, ResourceFactory.createResource(prefixemo + "Producer"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
-            resourceProducer.addProperty(label, this.name);
+            resourceProducer.addProperty(label, this.name.replace("-"," "));
             //add weight
             Property weight = m.createProperty(prefixerdfs + "seeAlso");
             resourceProducer.addProperty(weight, ""+randomNum);

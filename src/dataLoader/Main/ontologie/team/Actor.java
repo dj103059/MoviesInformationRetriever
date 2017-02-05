@@ -68,7 +68,7 @@ public class Actor {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            actors.add(new Actor(urimovie,name.getString().replace(" (Actor)","")));
+            actors.add(new Actor(urimovie,name.getString().replace(" (Actor)","").replace(" ","-").replace("'","")));
         }
         return actors;
     }
@@ -84,7 +84,7 @@ public class Actor {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            actors.add(new Actor(name.getString().replace(" (Actor)","")));
+            actors.add(new Actor(name.getString().replace(" (Actor)","").replace(" ","-").replace("'","")));
         }
         return actors;
     }
@@ -102,7 +102,7 @@ public class Actor {
             m.add(resourceActor, RDF.type, ResourceFactory.createResource(prefixemo + "Actor"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
-            resourceActor.addProperty(label, this.name);
+            resourceActor.addProperty(label, this.name.replace("-"," "));
             //add weight
             Property weight = m.createProperty(prefixerdfs + "seeAlso");
             resourceActor.addProperty(weight, ""+randomNum);

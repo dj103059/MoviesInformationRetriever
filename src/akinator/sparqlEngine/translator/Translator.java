@@ -124,7 +124,7 @@ public class Translator {
      */
     private String getResultFromMap(String queryString){
         String result = "";
-        //System.out.print(queryString);
+        System.out.print(queryString);
         Query query = QueryFactory.create(queryString);
         QueryExecution qexec = QueryExecutionFactory.create(query, Initialisation.getModel());
         try{

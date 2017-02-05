@@ -92,8 +92,8 @@ public class Movie {
             Literal duration = binding.getLiteral("duration");
             Literal country = binding.getLiteral("country");
             Resource uri = (Resource) binding.get("uri");
-            String temp = label.toString().replace("{{unicode|!}}{{unicode|!}}","").replace("/","");
-            if(!Objects.equals(temp, "×\u0099×\u0095×¡×\u0099 ×\u0095×\u0092'×\u0090×\u0092×¨") && !Objects.equals(temp, "[[Japanese language|Japanese]]")){
+            String temp = label.toString().replace("{{unicode|!}}{{unicode|!}}","").replace("/","").replace(" ","-").replace("'","");
+            if(!Objects.equals(temp, "×\u0099×\u0095×¡×\u0099 ×\u0095×\u0092'×\u0090×\u0092×¨") && !Objects.equals(temp, "[[Japanese-language|Japanese]]")){
                 movietemp =  new Movie(uri.getURI(),temp,date.getString(),duration.getFloat(),country.getString());
                 movies.add(movietemp);
             }

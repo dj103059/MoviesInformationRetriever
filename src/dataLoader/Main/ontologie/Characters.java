@@ -68,7 +68,7 @@ public class Characters {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            characters.add(new Characters(urimovie,name.getString().replace(" (Film Character)","")));
+            characters.add(new Characters(urimovie,name.getString().replace(" (Film Character)","").replace(" ","-").replace("'","")));
         }
         return characters;
     }
@@ -83,7 +83,7 @@ public class Characters {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            characterses.add(new Characters(name.getString().replace(" (Film Character)","")));
+            characterses.add(new Characters(name.getString().replace(" (Film Character)","").replace(" ","-").replace("'","")));
         }
         return characterses;
     }
@@ -101,7 +101,7 @@ public class Characters {
             m.add(resourceCharacter, RDF.type, ResourceFactory.createResource(prefixemo + "Character"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
-            resourceCharacter.addProperty(label, this.name);
+            resourceCharacter.addProperty(label, this.name.replace("-"," "));
             //add weight
             Property weight = m.createProperty(prefixerdfs + "seeAlso");
             resourceCharacter.addProperty(weight, ""+randomNum);

@@ -64,7 +64,7 @@ public class Scriptwriter {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            scriptwritertemp =  new Scriptwriter(urimovie,name.getString().replace(" (Writer)",""));
+            scriptwritertemp =  new Scriptwriter(urimovie,name.getString().replace(" (Writer)","").replace(" ","-").replace("'",""));
             scriptwriters.add(scriptwritertemp);
 
         }
@@ -88,7 +88,7 @@ public class Scriptwriter {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            scriptwriters.add(new Scriptwriter(name.getString().replace(" (Writer)","")));
+            scriptwriters.add(new Scriptwriter(name.getString().replace(" (Writer)","").replace(" ","-").replace("'","")));
         }
         return scriptwriters;
     }
@@ -106,7 +106,7 @@ public class Scriptwriter {
             m.add(resourceWriter, RDF.type, ResourceFactory.createResource(prefixemo + "Scriptwriter"));
             //add title
             Property label = m.createProperty(prefixerdfs + "label");
-            resourceWriter.addProperty(label, this.name);
+            resourceWriter.addProperty(label, this.name.replace("-"," "));
             //add weight
             Property weight = m.createProperty(prefixerdfs + "seeAlso");
             resourceWriter.addProperty(weight, ""+randomNum);
