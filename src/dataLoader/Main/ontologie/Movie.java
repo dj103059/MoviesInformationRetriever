@@ -26,7 +26,7 @@ public class Movie {
 
     public static String request = "prefix mo:  <http://data.linkedmdb.org/resource/movie/>" +
             "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>" +
-            "SELECT DISTINCT ?uri ?label  ?date  ?duration    ?country WHERE"+
+            "SELECT DISTINCT ?uri ?label  ?date  ?duration  WHERE"+
             " { ?uri rdfs:label ?label."+
             "?uri a mo:film. "+
             "?uri mo:initial_release_date ?date."+
@@ -36,15 +36,13 @@ public class Movie {
             "?uri mo:genre ?genre." +
             "?uri mo:writer ?uriWriter." +
             "?uri mo:producer ?uriProducer." +
-           // "?uri mo:actor ?uriactor." +
-           // "?uri mo:performance ?uriperfomance."+
             " } ";
 
 
 
     private String uri ;
-    public String country;
     public String title;
+    public ArrayList<Country> countrys = new ArrayList<Country>();
     public ArrayList<Type> types = new ArrayList<Type>();
     public ArrayList<Producer> producers = new ArrayList<Producer>();
     public ArrayList<Scriptwriter> writers = new ArrayList<Scriptwriter>();
@@ -59,12 +57,12 @@ public class Movie {
      * @param uri
      * @param label
      */
-    public Movie(String uri,String label , String date, float duration, String country){
+    public Movie(String uri,String label , String date, float duration){
         this.uri = uri;
         this.label = label;
         this.date = date.substring(0,4) + " OK";
         this.duration = ((int)duration/60)+"h"+( (((int)duration%60)>9)?  (int)duration%60 : "0"+(int)duration%60 ) + " OK";
-        this.country = country.replace(" (Country)","");
+
     }
 
 
@@ -90,11 +88,10 @@ public class Movie {
             Literal label = binding.getLiteral("label");
             Literal date = binding.getLiteral("date");
             Literal duration = binding.getLiteral("duration");
-            Literal country = binding.getLiteral("country");
             Resource uri = (Resource) binding.get("uri");
             String temp = label.toString().replace("{{unicode|!}}{{unicode|!}}","").replace("/","").replace(" ","-").replace("'","");
             if(!Objects.equals(temp, "×\u0099×\u0095×¡×\u0099 ×\u0095×\u0092'×\u0090×\u0092×¨") && !Objects.equals(temp, "[[Japanese-language|Japanese]]")){
-                movietemp =  new Movie(uri.getURI(),temp,date.getString(),duration.getFloat(),country.getString());
+                movietemp =  new Movie(uri.getURI(),temp,date.getString(),duration.getFloat());
                 movies.add(movietemp);
             }
 
@@ -139,8 +136,12 @@ public class Movie {
         this.actors = listofactors;
     }
 
+    public void addListOfCountry(ArrayList<Country> listofcountrys){
+        this.countrys = listofcountrys;
+    }
 
-    public static void fillOntologie(ArrayList<Movie> movies,ArrayList<Type> types,ArrayList<Actor> actors,ArrayList<Characters> characters,ArrayList<Producer> producers,ArrayList<Scriptwriter> writers){
+
+    public static void fillOntologie(ArrayList<Movie> movies,ArrayList<Type> types,ArrayList<Actor> actors,ArrayList<Characters> characters,ArrayList<Producer> producers,ArrayList<Scriptwriter> writers, ArrayList<Country> countrys){
         Model m = ModelFactory.createDefaultModel();
         final String inputFile  = "/Users/titanium/Desktop/MoviesInformationRetriever/File/RDFS_file/OntologieMovie.owl";
 
@@ -148,6 +149,10 @@ public class Movie {
         m.read(test, "RDF/XML");
 
 
+        for (Country country:countrys
+                ) {
+            country.addCountryToOntologie(m);
+        }
 
         for (Type type:types
                 ) {
@@ -208,11 +213,9 @@ public class Movie {
         //resourceMovie.addProperty(wasReleasedIn,this.date,XSDDatatype.XSDstring);
         //duration
         Property duration = m.createProperty(prefixemo+"Duration");
-        m.addLiteral(resourceMovie,duration,this.date);
+        m.addLiteral(resourceMovie,duration,this.duration);
         //m.add(resourceMovie,duration,ResourceFactory.createTypedLiteral(this.duration, XSDDatatype.XSDstring));
-        //country
-        Property country = m.createProperty(prefixemo+"OrginalCountry");
-        m.add(resourceMovie, country, ResourceFactory.createResource(prefixemo + this.country));
+
 
         try{
             //type
@@ -247,6 +250,13 @@ public class Movie {
                 m.add(resourceMovie, tempcharac, ResourceFactory.createResource(prefixemo + moviecharacter.name));
             }
 
+            //country
+            for (Country country1 : this.countrys ) {
+                Property tempcountry = m.createProperty(prefixemo+"OrginalCountry");
+                m.add(resourceMovie, tempcountry, ResourceFactory.createResource(prefixemo + country1.name));
+            }
+
+
         }catch (Exception e){
 
         }
@@ -269,7 +279,6 @@ public class Movie {
                 "label : "+ this.label + " \n"+
                 "date : "+ this.date+ " \n"+
                 "duration : " + this.duration +" \n "+
-                "country : "+ this.country +" \n" +
                 "genre : ";
 
         for(int i = 0;i<this.types.size();i++){

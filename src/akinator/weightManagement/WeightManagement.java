@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.PatternSyntaxException;
 
 //import
+import org.apache.jena.base.Sys;
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
@@ -184,7 +185,8 @@ public class WeightManagement {
 			e.getStackTrace();
 		}
 
-		return property = foundProperty.toString();
+		System.out.println("property "+foundProperty.toString());
+		return this.property = foundProperty.toString();
 
 	}
 
@@ -399,9 +401,9 @@ public class WeightManagement {
 	/***********************************/
 	
 	//Set the property, the label and the weight for the masterBranch. Set also these three result in the array Property_Label_Weight_Triplet
-		private String getDataValue(String Label_MasterBranch){
-			final String querySring = this.prefix+"Select distinct ?value  where {?uri_value rdfs:label \""+Label_MasterBranch+"\".?uri_value rdfs:label ?label.?uri_value rdfs:isDefinedBy ?poids.?uri mo:wasReleasedIn ?value.filter regex (str(?value), \"OK\")}order by desc (?poids) LIMIT 1";
-			//System.out.print(queryString);
+		private String getDataValue(String Label_MasterBranch, String property){
+			final String querySring = this.prefix+"Select distinct ?value  where {?uri_value rdfs:label \""+Label_MasterBranch+"\".?uri_value rdfs:label ?label.?uri_value rdfs:isDefinedBy ?poids.?uri mo:"+property+" ?value.filter regex (str(?value), \"OK\")}order by desc (?poids) LIMIT 1";
+			//System.out.print(querySring);
 			String getDataValue = new String();
 			Query query = QueryFactory.create(querySring);
 			//System.out.println(this.mainQuery);
@@ -428,13 +430,13 @@ public class WeightManagement {
 			return getDataValue.substring(0, getDataValue.length()-2);
 		}
 		
-		private String getDataValueWithoutOK(String Label_MasterBranch){
-			return deleteOK(getDataValue(Label_MasterBranch));
+		private String getDataValueWithoutOK(String Label_MasterBranch, String property){
+			return deleteOK(getDataValue(Label_MasterBranch,property));
 		}
 		
 		//Decrement the weight for the masterBranch specified by its label.
-		private void DeleteDataValue(String ValueWithoutOK, String valueWithOK){
-			final String querySring = this.prefix+" DELETE { ?uri mo:wasReleasedIn ?value. } INSERT { ?uri mo:wasReleasedIn \""+ValueWithoutOK+"NONE\". } where { ?uri mo:wasReleasedIn \""+valueWithOK+"\". ?uri mo:wasReleasedIn ?value. }";
+		private void DeleteDataValue(String ValueWithoutOK, String valueWithOK ,String property){
+			final String querySring = this.prefix+" DELETE { ?uri mo:"+property+" ?value. } INSERT { ?uri mo:"+property+" \""+ValueWithoutOK+"NONE\". } where { ?uri mo:"+property+" \""+valueWithOK+"\". ?uri mo:"+property+" ?value. }";
 			//System.out.println(querySring);
 			UpdateRequest query = UpdateFactory.create(querySring);
 			//System.out.println(this.mainQuery);
@@ -449,15 +451,16 @@ public class WeightManagement {
 		ArrayList<String> propertyAndValue = new ArrayList<>();
 		WeightManagement wm = new WeightManagement();
 		String property = wm.getMasterBranch_MaxWeight_Property();
+		//System.out.println("property getPropertyValue format " +property);
 		//System.out.println(wm.getMasterBranch_MaxWeight_Label());
 		String format = wm.getMasterBranch_MaxWeight_Format(wm.getMasterBranch_MaxWeight_Label());
 		String value = "";
 		String valueWithOK = "";
 		if(format.equals("rdfs")){
-			value = getDataValueWithoutOK(wm.getMasterBranch_MaxWeight_Label());
+			value = getDataValueWithoutOK(wm.getMasterBranch_MaxWeight_Label(),property);
 			///System.out.println(value+"OK");
 			valueWithOK = value+"OK";
-			DeleteDataValue(value, valueWithOK);
+			DeleteDataValue(value, valueWithOK, property);
 			//System.out.println("DeleteDataValue");
 		}
 		else{

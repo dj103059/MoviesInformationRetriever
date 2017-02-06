@@ -59,7 +59,7 @@ public class Request {
      */
     public String getResult(){
     	String result = "OK";
-        //System.out.print(queryString);
+        System.out.print(this.mainQuery);
         Query query = QueryFactory.create(this.mainQuery);
         Query querycount  = QueryFactory.create(this.countQuery);
         //System.out.println(this.countQuery);

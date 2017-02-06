@@ -85,7 +85,7 @@ public class Producer {
         while (r.hasNext()) {
             QuerySolution binding = r.nextSolution();
             Literal name = binding.getLiteral("name");
-            producers.add(new Producer(name.getString().replace("(Producer)","").replace(" ","-").replace("'","")));
+            producers.add(new Producer(name.getString().replace("(Producer)","").replace(" ","-").replace("'","").replace("Ã\u00AD","i").replace("Ã³","o")));
         }
         return producers;
     }

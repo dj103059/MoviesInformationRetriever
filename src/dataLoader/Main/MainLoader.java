@@ -2,6 +2,7 @@ package dataLoader.Main;
 
 
 import dataLoader.Main.ontologie.Characters;
+import dataLoader.Main.ontologie.Country;
 import dataLoader.Main.ontologie.Movie;
 import dataLoader.Main.ontologie.Type;
 import dataLoader.Main.ontologie.team.Actor;
@@ -64,6 +65,7 @@ public class MainLoader {
         ArrayList<Scriptwriter> scriptwriters;
         ArrayList<Actor> actors;
         ArrayList<Characters> characterses;
+        ArrayList<Country> countries;
 
         System.out.println("Create Character list");
         characterses = Characters.constructListOfCharacter(query,queryexec,resultSet,model);
@@ -73,6 +75,9 @@ public class MainLoader {
 
         System.out.println("Create type list");
         types = Type.constructListOfType(query,queryexec,resultSet,model);
+
+        System.out.println("Create countries list");
+        countries = Country.constructListOfCountry(query,queryexec,resultSet,model);
 
         System.out.println("Create writer list");
         scriptwriters = Scriptwriter.constructListOfWriter(query,queryexec,resultSet,model);
@@ -84,7 +89,7 @@ public class MainLoader {
         movies =  loadMovieFromBigDataset(model);
 
         System.out.println("add all  to ontologie");
-        Movie.fillOntologie(movies,types,actors,characterses,producers,scriptwriters);
+        Movie.fillOntologie(movies,types,actors,characterses,producers,scriptwriters,countries);
 
         System.out.println("ends");
 
@@ -111,6 +116,7 @@ public class MainLoader {
             movie.addListOfProducer(Producer.constructListOfProducerForMovie(movie.getUri(),query,queryexec,resultSet,model));
             movie.addListOfActors(Actor.constructListOfActorForMovie(movie.getUri(),query,queryexec,resultSet,model));
             movie.addListOfCharacters(Characters.constructListOfCharactersForMovie(movie.getUri(),query,queryexec,resultSet,model));
+            movie.addListOfCountry(Country.constructListOfCountrysForMovie(movie.getUri(),query,queryexec,resultSet,model));
         }
         return  movies;
     }

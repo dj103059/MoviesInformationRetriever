@@ -42,6 +42,7 @@ public class Filter {
      */
     public void constructFilter(StoredComponent storedComponent, boolean answer){
 
+        System.out.println("storedComponent.getProperty() " + storedComponent.getProperty());
         // to know if ti's our format or rdfs format
 
         String filtervalue = "";

@@ -26,7 +26,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Characters">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Character"/>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">99</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">88</rdfs:isDefinedBy>
         <rdfs:label>has a character named</rdfs:label>
     </owl:ObjectProperty>
     
@@ -37,6 +37,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#OrginalCountry">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Country"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</rdfs:isDefinedBy>
         <rdfs:label>come from</rdfs:label>
     </owl:ObjectProperty>
     
@@ -48,7 +49,7 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#hasPlayIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Actor"/>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">97</rdfs:isDefinedBy>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#int">90</rdfs:isDefinedBy>
         <rdfs:label>has as actor</rdfs:label>
     </owl:ObjectProperty>
     
@@ -83,6 +84,7 @@
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasScriptWriterIn"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Scriptwriter"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</rdfs:isDefinedBy>
         <rdfs:label>has as scriptWriter</rdfs:label>
     </owl:ObjectProperty>
     
@@ -125,7 +127,17 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasProductby">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Producer"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</rdfs:isDefinedBy>
         <rdfs:label>was produced by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#String"/>
     </owl:ObjectProperty>
     
 
@@ -167,20 +179,15 @@
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Duration">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</rdfs:isDefinedBy>
-        <rdfs:label>Duration</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</rdfs:isDefinedBy>
+        <rdfs:label>lasts about</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Movie"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#String"/>
-        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</rdfs:isDefinedBy>
-        <rdfs:label>was released in</rdfs:label>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn"/>
     
 
 
@@ -261,6 +268,12 @@
     <!-- http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#Type"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#String -->
+
+    <owl:Class rdf:about="http://www.w3.org/2001/XMLSchema#String"/>
     
 
 
@@ -1280,6 +1293,21 @@
         <rdfs:comment>A young Hobbit named Frodo (Guard) is thrown on an amazing adventure, when he is appointed the job of destroying the one ring which was created by the dark lord Sauron. He is assigned with warriors including Gandalf (Squire), Aragorn (Hurt) and Boromir (Cox). It&apos;s not going to be an easy journey for the Fellowship of the Ring, on the ultimate quest to rid Middle-Earth of all evil.</rdfs:comment>
         <rdfs:label>The lord of the rings : The fellowship of the rings</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/titanium/ontologies/2017/0/untitled-ontology-11#wasReleasedIn">
+        <rdfs:label>was released in</rdfs:label>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</rdfs:isDefinedBy>
+    </rdf:Description>
 </rdf:RDF>
 
 
